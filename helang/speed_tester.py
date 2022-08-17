@@ -23,7 +23,7 @@ def run_speed_test():
     for music in MUSICS:
         count = random.randint(*MUSIC_SIZE_MB_RANGE)
         file = music + random.choice(SUFFIX)
-        print(f'Downloading {file}...')
+        print(f'    Downloading {file}...')
         for _ in tqdm.tqdm(range(count), total=count, unit='m'):
             # 1ms to 25ms
             time.sleep(random.randint(1, 25) / 1000)
