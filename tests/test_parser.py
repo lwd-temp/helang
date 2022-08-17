@@ -83,3 +83,10 @@ def test_parse_increment():
 
     assert env['a'] == [2, 3, 4]
 
+
+def test_semicolon():
+    parse("""
+        ;;;u8 a = 1;;;
+    """).evaluate(env)
+
+    assert env['a'] == [1]

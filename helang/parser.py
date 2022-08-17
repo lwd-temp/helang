@@ -37,6 +37,7 @@ class Parser:
             self._root_parse_var_increment,
             self._root_parse_expr,
             self._root_parse_test_5g,
+            self._root_parse_semicolon,
         ]
         asts = []
         while self._pos < len(self._tokens):
@@ -51,6 +52,10 @@ class Parser:
                 raise BadStatementException(f'failed to parse tokens started from {self._pos}, '
                                             f'which is {self._tokens[self._pos]}')
         return ListAST(asts)
+
+    def _root_parse_semicolon(self) -> AST:
+        self._expect(TokenKind.SEMICOLON)
+        return VoidAST()
 
     def _root_parse_var_def(self) -> AST:
         self._expect(TokenKind.U8)
