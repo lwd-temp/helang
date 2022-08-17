@@ -1,5 +1,6 @@
 from typing import Optional, List
-from .exceptions import CyberSubtractionException, CyberU8ComparingException
+from .exceptions import CyberSubtractionException, CyberU8ComparingException, \
+    CyberNotSupportedException
 
 
 class U8:
@@ -39,3 +40,18 @@ class U8:
             return U8([self.value[i] - other.value[i] for i in range(len(self.value))])
 
         raise CyberSubtractionException(f'illegal subtraction: {self.value} - {other.value}')
+
+    def __getitem__(self, subscripts: 'U8'):
+        # Like the operation of sublist.
+        # And Saint He likes arrays whose subscript start from 1.
+        return U8([self.value[i-1] for i in range(1, len(self.value) + 1) if i in subscripts.value])
+
+    def __setitem__(self, subscripts: 'U8', value: 'U8'):
+        if len(value.value) > 1:
+            raise CyberNotSupportedException('no high dimension u8')
+        if len(value.value) == 0:
+            raise CyberNotSupportedException('you must set u8 with single value')
+        val = value.value[0]
+        for subscript in subscripts.value:
+            self.value[subscript-1] = val
+

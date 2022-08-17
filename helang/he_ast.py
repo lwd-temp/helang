@@ -113,15 +113,10 @@ class U8SetAST(AST):
         self._value = value_expr
 
     def evaluate(self, env: Dict[str, U8]) -> U8:
-        lst = self._list.evaluate(env).value
-        subscripts = self._subscript.evaluate(env).value
-        val = self._value.evaluate(env).value
-        # Flat single element list to the element itself.
-        if len(val) == 1:
-            val = val[0]
-        for i in subscripts:
-            # Saint He likes arrays whose subscript start from 1.
-            lst[i-1] = val
+        lst = self._list.evaluate(env)
+        subscripts = self._subscript.evaluate(env)
+        val = self._value.evaluate(env)
+        lst[subscripts] = val
         return U8()
 
 
@@ -131,11 +126,9 @@ class U8GetAST(AST):
         self._subscript = subscript_expr
 
     def evaluate(self, env: Dict[str, U8]) -> U8:
-        lst = self._list.evaluate(env).value
-        subscripts = self._subscript.evaluate(env).value
-        # Like the operation of sublist.
-        # And Saint He likes arrays whose subscript start from 1.
-        return U8([lst[i-1] for i in range(1, len(lst) + 1) if i in subscripts])
+        lst = self._list.evaluate(env)
+        subscripts = self._subscript.evaluate(env)
+        return lst[subscripts]
 
 
 class PrintAST(AST):

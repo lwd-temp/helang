@@ -20,3 +20,7 @@ class CyberSubtractionException(HeLangException):
 
 class CyberU8ComparingException(HeLangException):
     ...
+
+
+class CyberNotSupportedException(HeLangException):
+    ...
