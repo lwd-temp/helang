@@ -5,7 +5,11 @@ from helang.lexer import Lexer
 from helang.u8 import U8
 
 
-class ParserTest(unittest.TestCase):
+class TestParser(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        print('1! 5! 哥们在这给你测试!')
+
     def setUp(self) -> None:
         self.def_code = """
             u8 list1 = 1 | 2 | 3;

@@ -4,6 +4,10 @@ from helang.he_ast import *
 
 
 class TestAST(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        print('Cyber Ding True!')
+
     def setUp(self) -> None:
         self.env = {'a': U8([1, 2, 3, 4]), 'b': U8([1, 3]), 'c': U8([12])}
         self.a = VarExprAST('a')
