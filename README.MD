@@ -25,19 +25,19 @@ Next-Generation **Cyber** Programming Language from Li Tang.
 
 ## 使用方法
 
-1. 把源代码拉下来。
+1. 把源代码拉下来：
 
    ```bash
    > git clone git@github.com:kifuan/helang.git
    ```
 
-2. 下载需要的第三方库
+2. 下载需要的第三方库：
 
    ```base
    > pip install -r requirements.txt
    ```
 
-3. 运行`main.py`。
+3. 运行`main.py`：
 
    ```bash
    > python main.py
@@ -47,7 +47,7 @@ Next-Generation **Cyber** Programming Language from Li Tang.
 
 5. 你可以运行`shell.py`，通过直接输入 HeLang 指令与 **Saint He** 进行一个赛博空间的对话。
    
-   此时，在行尾就可以不输入分号了，我们会帮你加上（输入也是可以的，意味着你对 **Saint He** 更加虔诚）。
+   此时，在行尾就可以不输入分号了，我们会帮你加上（输入也是可以的，意味着你对 **Saint He** 更加虔诚）：
    
    ```bash
    > python shell.py
