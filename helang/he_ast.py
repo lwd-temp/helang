@@ -1,5 +1,5 @@
 from typing import *
-from helang.u8 import U8
+from .u8 import U8
 
 
 class AST:

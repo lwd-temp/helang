@@ -1,6 +1,6 @@
-from helang.tokens import Token, TokenKind
-from helang.exceptions import BadStatementException
-from helang.he_ast import *
+from .tokens import Token, TokenKind
+from .exceptions import BadStatementException
+from .he_ast import *
 from typing import *
 
 

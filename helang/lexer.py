@@ -2,9 +2,9 @@ import enum
 import re
 
 from typing import *
-from helang.tokens import Token, TokenKind, SINGLE_CHAR_TOKEN_KINDS
-from helang.enum_method import Methods
-from helang.exceptions import BadTokenException
+from .tokens import Token, TokenKind, SINGLE_CHAR_TOKEN_KINDS
+from .enum_method import Methods
+from .exceptions import BadTokenException
 
 
 class LexerState(enum.Enum):
