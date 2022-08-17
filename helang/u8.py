@@ -9,6 +9,7 @@ class U8:
         self.value = [] if value is None else value
 
     def __str__(self) -> str:
-        if self.value is None:
-            return ''
         return ' | '.join(str(element) for element in self.value)
+
+    def increment(self):
+        self.value = [v+1 for v in self.value]

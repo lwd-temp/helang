@@ -34,6 +34,16 @@ class VarAssignAST(AST):
         return val
 
 
+class VarIncrementAST(AST):
+    def __init__(self, ident: str):
+        self._ident = ident
+
+    def evaluate(self, env: Dict[str, U8]) -> U8:
+        var = env[self._ident]
+        var.increment()
+        return var
+
+
 class VarExprAST(AST):
     def __init__(self, ident: str):
         self._ident = ident

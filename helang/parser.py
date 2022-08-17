@@ -32,6 +32,7 @@ class Parser:
             self._root_parse_var_def,
             self._root_parse_var_declare,
             self._root_parse_var_assign,
+            self._root_parse_var_increment,
             self._root_parse_expr,
             self._root_parse_test_5g,
         ]
@@ -81,6 +82,12 @@ class Parser:
         expr = self._root_parse_expr()
         self._expect(TokenKind.SEMICOLON)
         return SprintAST(expr)
+
+    def _root_parse_var_increment(self) -> AST:
+        ident = self._expect(TokenKind.IDENT)
+        self._expect(TokenKind.INCREMENT)
+        self._expect(TokenKind.SEMICOLON)
+        return VarIncrementAST(ident.content)
 
     def _root_parse_test_5g(self) -> AST:
         self._expect(TokenKind.TEST_5G)
