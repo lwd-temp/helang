@@ -79,6 +79,17 @@ class OrU8InitAST(AST):
         return U8(elements)
 
 
+class SubtractionAST(AST):
+    def __init__(self, first: AST, second: AST):
+        self._first = first
+        self._second = second
+
+    def evaluate(self, env: Dict[str, U8]) -> U8:
+        first = self._first.evaluate(env)
+        second = self._second.evaluate(env)
+        return first - second
+
+
 class ListAST(AST):
     def __init__(self, asts: List[AST]):
         self.asts = asts
