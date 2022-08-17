@@ -2,7 +2,7 @@ import enum
 import re
 
 from typing import *
-from .tokens import Token, TokenKind, SINGLE_CHAR_TOKEN_KINDS
+from .tokens import Token, TokenKind, SINGLE_CHAR_TOKEN_KINDS, KEYWORD_KINDS
 from .enum_method import Methods
 from .exceptions import BadTokenException
 
@@ -81,12 +81,8 @@ class Lexer:
     def _lex_ident(self, tokens: List[Token]):
         if self._cache != '' and not re.match(r'[A-Za-z0-9_$]', self._curr):
             # Current character is not identifier, changing state to WAIT.
-            if self._cache == 'u8':
-                tokens.append(Token(self._cache, TokenKind.U8))
-            elif self._cache == 'print':
-                tokens.append(Token(self._cache, TokenKind.PRINT))
-            else:
-                tokens.append(Token(self._cache, TokenKind.IDENT))
+            kind = KEYWORD_KINDS.get(self._cache, TokenKind.IDENT)
+            tokens.append(Token(self._cache, kind))
             self._state = LexerState.WAIT
             return
 

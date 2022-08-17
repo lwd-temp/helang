@@ -38,6 +38,8 @@ class TokenKind(enum.Enum):
     U8 = 17
     # Print statement, supporting for single expression
     PRINT = 18
+    # 5G testing statement
+    TEST_5G = 19
 
 
 SINGLE_CHAR_TOKEN_KINDS = {
@@ -53,6 +55,12 @@ SINGLE_CHAR_TOKEN_KINDS = {
     '=': TokenKind.ASSIGN,
     '<': TokenKind.LT,
     '-': TokenKind.MINUS,
+}
+
+KEYWORD_KINDS = {
+    'print': TokenKind.PRINT,
+    'u8': TokenKind.U8,
+    'test5g': TokenKind.TEST_5G
 }
 
 
