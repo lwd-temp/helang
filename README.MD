@@ -4,11 +4,12 @@ Next-Generation **Cyber** Programming Language from Li Tang.
 
 引个流先：https://www.bilibili.com/video/BV1XW4y1h79A/
 
-## 分支
+## 二创
 
-非常好实现！爱来自 **Cyber Spaces**！
+非常好作品！爱来自 **Cyber Spaces**！
 
-+ 何语言 Kotlin 脚本版 [HeLangKotlinScriptImpl](https://github.com/shaokeyibb/HeLangKotlinScriptImpl)
++ 何语言 `Kotlin` 脚本版 [HeLangKotlinScriptImpl](https://github.com/shaokeyibb/HeLangKotlinScriptImpl)
++ 登陆 `ArchLinux` https://github.com/BenderBlog/Practise-Programs/tree/main/Helang-PKGBUILD
 + L! T! C! (etc.)
 
 ## 介绍
