@@ -1,4 +1,4 @@
-from typing import *
+from typing import Optional, List
 from .exceptions import CyberSubtractionException, CyberU8ComparingException
 
 

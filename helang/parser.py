@@ -1,7 +1,9 @@
 from .tokens import Token, TokenKind
 from .exceptions import BadStatementException
-from .he_ast import *
-from typing import *
+from .he_ast import AST, VoidAST, ListAST, VarDefAST, VarAssignAST, VarExprAST,\
+    PrintAST, SprintAST, VarIncrementAST, U8SetAST, U8GetAST, Test5GAST,\
+    EmptyU8InitAST, OrU8InitAST
+from typing import List, Optional, Callable, Tuple
 
 
 class Parser:

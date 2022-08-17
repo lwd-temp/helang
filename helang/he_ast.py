@@ -1,6 +1,6 @@
 import random
 
-from typing import *
+from typing import Dict, Optional, List
 from .u8 import U8
 from .speed_tester import run_speed_test
 from .exceptions import CyberNameException
@@ -8,7 +8,7 @@ from .exceptions import CyberNameException
 
 class AST:
     def evaluate(self, env: Dict[str, U8]) -> U8:
-        raise NotImplemented()
+        raise NotImplementedError()
 
 
 class VarDefAST(AST):
