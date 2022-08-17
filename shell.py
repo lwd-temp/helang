@@ -8,11 +8,9 @@ from helang.u8 import U8
 
 
 SHELL_HELP = """
-Shell help document
-
-.help: get help for REPL keywords
-.exit: exits shell
-.env: prints current environment
+.help  Print this help message
+.exit  Exit the shell
+.env   Print current environments
 """.strip()
 
 
