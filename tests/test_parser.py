@@ -3,6 +3,8 @@ import unittest
 from helang.parser import Parser
 from helang.lexer import Lexer
 from helang.u8 import U8
+from helang.he_ast import Test5GAST
+from helang.speed_tester import MUSICS
 
 
 class TestParser(unittest.TestCase):
@@ -31,6 +33,10 @@ class TestParser(unittest.TestCase):
             print a[1 | 2];
         """
 
+        self.test_5g_code = """
+            test5g;
+        """
+
     def test_parse_def(self):
         lexer = Lexer(self.def_code)
         env = dict()
@@ -52,3 +58,10 @@ class TestParser(unittest.TestCase):
         env = {'a': U8([2, 3, 4])}
         printed_content = Parser(Lexer(self.print_code).lex()).parse().evaluate(env)
         self.assertEqual(printed_content.value, [2, 3])
+
+    def test_parse_test_5g(self):
+        # Hack the testing musics to reduce time.
+        MUSICS.clear()
+        MUSICS.append('TEST')
+        result = Parser(Lexer(self.test_5g_code).lex()).parse().evaluate(dict())
+        self.assertEqual(result.value, Test5GAST.SPECIAL_VALUE)
