@@ -139,6 +139,15 @@ a = 1 | 2;
 u8 b = 3 | 4;
 ```
 
+注意！如果你没有声明或定义一个变量，尝试直接给它赋值，你会收获`CyberNameException`。
+
+```c
+c = 1 | 2 | 3;
+// helang.exceptions.CyberNameException: a is not defined.
+```
+
+我们作为高科技语言，当然是需要严谨的。
+
 ## 5G测速
 
 理论上这块也属于语法，但我就是要把它单独摘出来。
