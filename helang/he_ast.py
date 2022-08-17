@@ -3,6 +3,7 @@ import random
 from typing import *
 from .u8 import U8
 from .speed_tester import run_speed_test
+from .exceptions import CyberNameException
 
 
 class AST:
@@ -28,7 +29,7 @@ class VarAssignAST(AST):
 
     def evaluate(self, env: Dict[str, U8]) -> U8:
         if self._ident not in env.keys():
-            raise NameError(f'variable {self._ident} is not defined.')
+            raise CyberNameException(f'{self._ident} is not defined.')
         val = self._val.evaluate(env)
         env[self._ident] = val
         return val
