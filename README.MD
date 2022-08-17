@@ -16,6 +16,24 @@ Next-Generation **Cyber** Programming Language from Li Tang.
 
 注2：**BUPT** 在赛博世界还可以写为 Beijing University of Posts and Telecommunications，北京邮电大学（声明：我对本学府无恶意，我认为这是一所优秀的学校，我只是对某个人）。
 
+## 使用方法
+
+1. 把源代码拉下来。
+
+   ```bash
+   > git clone git@github.com:kifuan/helang.git
+   ```
+
+2. 运行`main.py`。
+
+   ```bash
+   > python main.py
+   ```
+
+3. 你可以修改`great.he`，然后再次运行`main.py`，查看你的代码运行结果。
+
+好，就这么多，应该没什么难的。
+
 ## 语法
 
 **Saint He** 曾说，一切类型均为`u8`，是什么意思呢？这个词倒过来就是`8u`，看来圣人也喜欢玩贴吧。
@@ -65,7 +83,7 @@ print forceCon;
 
 ## 总结
 
-关注永雏塔菲喵，关注永雏塔菲谢谢喵。
+关注[永雏塔菲](https://space.bilibili.com/1265680561)喵，关注永雏塔菲谢谢喵。
 
 关注[猫雷NyaRu_Official](https://space.bilibili.com/697091119)谢谢喵，要吃中国的大米喵。
 
