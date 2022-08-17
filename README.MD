@@ -45,8 +45,10 @@ Next-Generation **Cyber** Programming Language from Li Tang.
 
 4. 你可以修改`great.he`，然后再次运行`main.py`，查看你的代码运行结果。
 
-5. 你可以运行`shell.py`，通过直接输入HeLang指令与Saint He进行一个赛博空间的对话
-
+5. 你可以运行`shell.py`，通过直接输入 HeLang 指令与 **Saint He** 进行一个赛博空间的对话。
+   
+   此时，在行尾就可以不输入分号了，我们会帮你加上（输入也是可以的，意味着 **Saint He** 更加虔诚）。
+   
    ```bash
    > python shell.py
    ```

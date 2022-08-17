@@ -4,14 +4,14 @@ from helang.exceptions import BadStatementException, BadTokenException
 
 env = dict()
 while True:
-    text = input('Speak to Saint He > ')
+    text = input('Speak to Saint He > ').strip()
+    if not text.endswith(';'):
+        text += ';'
     lexer = Lexer(text)
     parser = Parser(lexer.lex())
     try:
         parser.parse().evaluate(env)
-    except (BadStatementException, BadTokenException) as definedE:
-        print(definedE)
-        continue
-    except Exception:
+    except (BadStatementException, BadTokenException) as e:
+        print(e)
+    except:
         print('Error! Revise Saint He\'s videos!')
-        continue
