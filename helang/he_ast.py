@@ -1,5 +1,8 @@
+import random
+
 from typing import *
 from .u8 import U8
+from .speed_tester import run_speed_test
 
 
 class AST:
@@ -103,3 +106,12 @@ class PrintAST(AST):
         val = self._expr.evaluate(env)
         print(str(val))
         return val
+
+
+class Test5GAST(AST):
+    # To avoid coincidence.
+    SPECIAL_VALUE = [random.randint(1, 100), random.randint(1, 100)]
+
+    def evaluate(self, env: Dict[str, U8]) -> U8:
+        run_speed_test()
+        return U8(Test5GAST.SPECIAL_VALUE)
