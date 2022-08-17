@@ -51,6 +51,8 @@ Next-Generation **Cyber** Programming Language from Li Tang.
 
 **Saint He** 曾说，一切类型均为`u8`，是什么意思呢？这个词倒过来就是`8u`，看来圣人也喜欢玩贴吧。
 
+除此之外，`u8` 与 `v8` 形似，所以能不能关注[永雏塔菲](https://space.bilibili.com/1265680561)喵，关注永雏塔菲谢谢喵。
+
 如你所见，我们用**bitwise or**，即`|`代替了传统数组的符号。**都什么年代了还在写传统数组**？
 
 ```c
