@@ -36,7 +36,8 @@ class Parser:
                 except BadStatementException:
                     self._pos = saved_pos
             else:
-                raise BadStatementException(f'failed to parse tokens started from {self._pos}')
+                raise BadStatementException(f'failed to parse tokens started from {self._pos}, '
+                                            f'which is {self._tokens[self._pos]}')
         return ListAST(asts)
 
     def _root_parse_var_def(self) -> AST:
