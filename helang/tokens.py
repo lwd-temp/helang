@@ -40,6 +40,8 @@ class TokenKind(enum.Enum):
     PRINT = 18
     # 5G testing statement
     TEST_5G = 19
+    # Print string
+    SPRINT = 20
 
 
 SINGLE_CHAR_TOKEN_KINDS = {
@@ -60,7 +62,8 @@ SINGLE_CHAR_TOKEN_KINDS = {
 KEYWORD_KINDS = {
     'print': TokenKind.PRINT,
     'u8': TokenKind.U8,
-    'test5g': TokenKind.TEST_5G
+    'test5g': TokenKind.TEST_5G,
+    'sprint': TokenKind.SPRINT,
 }
 
 
@@ -71,3 +74,6 @@ class Token:
 
     def __eq__(self, other):
         return self.content == other.content and self.kind == other.kind
+
+    def __repr__(self):
+        return f'Token({self.kind}, {self.content})'

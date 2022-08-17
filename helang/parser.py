@@ -27,6 +27,7 @@ class Parser:
     def parse(self) -> AST:
         root_parsers = [
             self._root_parse_print,
+            self._root_parse_sprint,
             self._root_parse_u8_set,
             self._root_parse_var_def,
             self._root_parse_expr,
@@ -59,6 +60,12 @@ class Parser:
         expr = self._root_parse_expr()
         self._expect(TokenKind.SEMICOLON)
         return PrintAST(expr)
+
+    def _root_parse_sprint(self) -> AST:
+        self._expect(TokenKind.SPRINT)
+        expr = self._root_parse_expr()
+        self._expect(TokenKind.SEMICOLON)
+        return SprintAST(expr)
 
     def _root_parse_test_5g(self) -> AST:
         self._expect(TokenKind.TEST_5G)

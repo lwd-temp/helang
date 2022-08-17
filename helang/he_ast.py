@@ -115,3 +115,14 @@ class Test5GAST(AST):
     def evaluate(self, env: Dict[str, U8]) -> U8:
         run_speed_test()
         return U8(Test5GAST.SPECIAL_VALUE)
+
+
+class SprintAST(AST):
+    def __init__(self, expr: AST):
+        self._expr = expr
+
+    def evaluate(self, env: Dict[str, U8]) -> U8:
+        chars = self._expr.evaluate(env)
+        val = ''.join(chr(char) for char in chars.value)
+        print(val)
+        return chars
