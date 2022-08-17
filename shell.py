@@ -4,7 +4,7 @@ import traceback
 from typing import Dict
 from helang.lexer import Lexer
 from helang.parser import Parser
-from helang.exceptions import BadStatementException, BadTokenException, HeLangException
+from helang.exceptions import HeLangException
 from helang.u8 import U8
 
 
@@ -45,9 +45,9 @@ def shell():
         parser = Parser(lexer.lex())
         try:
             parser.parse().evaluate(env)
-        except (BadTokenException, BadStatementException):
+        except HeLangException:
             traceback.print_exc()
-        except HeLangException as e:
+        except Exception as e:
             print('Fatal Error! Revise Saint He\'s videos!')
             raise e
 
