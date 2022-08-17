@@ -21,6 +21,19 @@ class VarDefAST(AST):
         return U8()
 
 
+class VarAssignAST(AST):
+    def __init__(self, ident: str, val: AST):
+        self._ident = ident
+        self._val = val
+
+    def evaluate(self, env: Dict[str, U8]) -> U8:
+        if self._ident not in env.keys():
+            raise NameError(f'variable {self._ident} is not defined.')
+        val = self._val.evaluate(env)
+        env[self._ident] = val
+        return val
+
+
 class VarExprAST(AST):
     def __init__(self, ident: str):
         self._ident = ident
@@ -64,6 +77,11 @@ class ListAST(AST):
         for ast in self.asts:
             last = ast.evaluate(env)
         return last
+
+
+class VoidAST(AST):
+    def evaluate(self, env: Dict[str, U8]) -> U8:
+        return U8()
 
 
 class U8SetAST(AST):

@@ -30,6 +30,8 @@ class Parser:
             self._root_parse_sprint,
             self._root_parse_u8_set,
             self._root_parse_var_def,
+            self._root_parse_var_declare,
+            self._root_parse_var_assign,
             self._root_parse_expr,
             self._root_parse_test_5g,
         ]
@@ -54,6 +56,19 @@ class Parser:
         val = self._root_parse_expr()
         self._expect(TokenKind.SEMICOLON)
         return VarDefAST(var_ident.content, val)
+
+    def _root_parse_var_declare(self) -> AST:
+        self._expect(TokenKind.U8)
+        var_ident = self._expect(TokenKind.IDENT)
+        self._expect(TokenKind.SEMICOLON)
+        return VarDefAST(var_ident.content, VoidAST())
+
+    def _root_parse_var_assign(self) -> AST:
+        ident = self._expect(TokenKind.IDENT)
+        self._expect(TokenKind.ASSIGN)
+        expr = self._root_parse_expr()
+        self._expect(TokenKind.SEMICOLON)
+        return VarAssignAST(ident.content, expr)
 
     def _root_parse_print(self) -> AST:
         self._expect(TokenKind.PRINT)
