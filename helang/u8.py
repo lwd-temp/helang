@@ -1,4 +1,4 @@
-from typing import Optional, List
+from typing import Optional, List, Union
 from .exceptions import CyberSubtractionException, CyberU8ComparingException, \
     CyberNotSupportedException
 
@@ -7,8 +7,15 @@ class U8:
     """
     The Saint He's specific type.
     """
-    def __init__(self, value: Optional[List[int]] = None):
-        self.value = [] if value is None else value
+    def __init__(self, value: Optional[Union[List[int], int]] = None):
+        if value is None:
+            self.value = []
+        elif isinstance(value, int):
+            self.value = [value]
+        elif isinstance(value, list):
+            self.value = value
+        else:
+            raise CyberNotSupportedException('u8 can only contain integers')
 
     def __str__(self) -> str:
         return ' | '.join(str(element) for element in self.value)
@@ -52,6 +59,16 @@ class U8:
         if len(value.value) == 0:
             raise CyberNotSupportedException('you must set u8 with single value')
         val = value.value[0]
+
+        # Set all elements if subscript is single 0.
+        if subscripts == [0]:
+            self.value = [val] * len(self.value)
+            return
+
+        # Set the elements one by one.
         for subscript in subscripts.value:
+            if subscript == 0:
+                raise CyberNotSupportedException('subscript 0 is designed for setting all elements'
+                                                 'you should write like array[0] = 10')
             self.value[subscript-1] = val
 

@@ -30,3 +30,10 @@ def test_u8_subtraction():
         pytest.fail('illegal operation: number - vector')
     except CyberSubtractionException:
         ...
+
+
+def test_u8_set_all():
+    u8 = U8([1, 2, 3])
+    u8[U8(0)] = U8(10)
+
+    assert u8 == [10, 10, 10]

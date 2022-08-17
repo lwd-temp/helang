@@ -29,10 +29,13 @@ def test_parse_def():
 def test_parse_u8_set():
     parse("""
         u8 a = 1 | 2 | 3;
+        u8 b = 4 | 5 | 6;
         a[1 | 3] = 12;
+        b[0] = 10;
     """).evaluate(env)
 
     assert env['a'] == [12, 2, 12]
+    assert env['b'] == [10, 10, 10]
 
 
 def test_parse_u8_get():
