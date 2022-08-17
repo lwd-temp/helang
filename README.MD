@@ -6,7 +6,7 @@ Next-Generation **Cyber** Programming Language from Li Tang.
 
 ## 分支
 
-非常好实现！爱来自 **Cyber Spaces**
+非常好实现！爱来自 **Cyber Spaces**！
 
 + 何语言 Kotlin 脚本版 [HeLangKotlinScriptImpl](https://github.com/shaokeyibb/HeLangKotlinScriptImpl)
 + L! T! C! (etc.)
@@ -47,7 +47,7 @@ Next-Generation **Cyber** Programming Language from Li Tang.
 
 5. 你可以运行`shell.py`，通过直接输入 HeLang 指令与 **Saint He** 进行一个赛博空间的对话。
    
-   此时，在行尾就可以不输入分号了，我们会帮你加上（输入也是可以的，意味着 **Saint He** 更加虔诚）。
+   此时，在行尾就可以不输入分号了，我们会帮你加上（输入也是可以的，意味着你对 **Saint He** 更加虔诚）。
    
    ```bash
    > python shell.py
