@@ -154,7 +154,7 @@ u8 b = 3 | 4;
 
 ```c
 c = 1 | 2 | 3;
-// helang.exceptions.CyberNameException: a is not defined.
+// helang.exceptions.CyberNameException: c is not defined.
 ```
 
 我们作为高科技语言，当然是需要严谨的。
