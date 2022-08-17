@@ -14,7 +14,7 @@ SUFFIX = [
 ]
 
 
-MUSIC_SIZE_MB_RANGE = (5, 25)
+MUSIC_SIZE_MB_RANGE = (10, 30)
 
 
 def run_speed_test():
