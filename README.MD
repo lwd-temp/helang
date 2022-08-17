@@ -24,13 +24,19 @@ Next-Generation **Cyber** Programming Language from Li Tang.
    > git clone git@github.com:kifuan/helang.git
    ```
 
-2. 运行`main.py`。
+2. 下载需要的第三方库
+
+   ```base
+   > pip install -r requirements.txt
+   ```
+
+3. 运行`main.py`。
 
    ```bash
    > python main.py
    ```
 
-3. 你可以修改`great.he`，然后再次运行`main.py`，查看你的代码运行结果。
+4. 你可以修改`great.he`，然后再次运行`main.py`，查看你的代码运行结果。
 
 好，就这么多，应该没什么难的。
 
