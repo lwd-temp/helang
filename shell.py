@@ -1,4 +1,5 @@
 import sys
+import traceback
 
 from typing import Dict
 from helang.lexer import Lexer
@@ -44,11 +45,10 @@ def shell():
         parser = Parser(lexer.lex())
         try:
             parser.parse().evaluate(env)
-        except (BadTokenException, BadStatementException) as e:
-            print('Error compiling current statement.')
-            raise e
+        except (BadTokenException, BadStatementException):
+            traceback.print_exc()
         except HeLangException as e:
-            print('Error! Revise Saint He\'s videos!')
+            print('Fatal Error! Revise Saint He\'s videos!')
             raise e
 
 
