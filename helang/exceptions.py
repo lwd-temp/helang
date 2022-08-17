@@ -1,18 +1,22 @@
-class BadTokenException(Exception):
+class HeLangException(Exception):
     ...
 
 
-class BadStatementException(Exception):
+class BadTokenException(HeLangException):
     ...
 
 
-class CyberNameException(Exception):
+class BadStatementException(HeLangException):
     ...
 
 
-class CyberSubtractionException(Exception):
+class CyberNameException(HeLangException):
     ...
 
 
-class CyberU8ComparingException(Exception):
+class CyberSubtractionException(HeLangException):
+    ...
+
+
+class CyberU8ComparingException(HeLangException):
     ...

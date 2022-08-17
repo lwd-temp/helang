@@ -1,22 +1,57 @@
+import sys
+
+from typing import Dict
 from helang.lexer import Lexer
 from helang.parser import Parser
-from helang.exceptions import BadStatementException, BadTokenException
+from helang.exceptions import BadStatementException, BadTokenException, HeLangException
+from helang.u8 import U8
+
+
+SHELL_HELP = """
+Shell help document
+
+.help: get help for REPL keywords
+.exit: exits shell
+.env: prints current environment
+""".strip()
+
+
+def process_shell_keywords(text: str, env: Dict[str, U8]):
+    if text == 'help':
+        print(SHELL_HELP)
+    elif text == 'exit':
+        print('Saint He bless you.')
+        sys.exit(0)
+    elif text == 'env':
+        for k, v in env.items():
+            print(f'{k}: {v}')
+    else:
+        print(f'invalid shell keyword: {text}')
 
 
 def shell():
     env = dict()
     while True:
         text = input('Speak to Saint He > ').strip()
+        if text == '':
+            continue
+
+        if text.startswith('.'):
+            process_shell_keywords(text[1:], env)
+            continue
+
         if not text.endswith(';'):
             text += ';'
         lexer = Lexer(text)
         parser = Parser(lexer.lex())
         try:
             parser.parse().evaluate(env)
-        except (BadStatementException, BadTokenException) as e:
-            print(e)
-        except:
+        except (BadTokenException, BadStatementException) as e:
+            print('Error compiling current statement.')
+            raise e
+        except HeLangException as e:
             print('Error! Revise Saint He\'s videos!')
+            raise e
 
 
 if __name__ == '__main__':
