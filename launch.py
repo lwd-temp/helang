@@ -25,10 +25,10 @@ def process_shell_keywords(text: str, env: Dict[str, U8]):
         for k, v in env.items():
             print(f'{k}: {v}')
     else:
-        print(f'invalid shell keyword: {text}')
+        print(f'Invalid shell keyword: {text}')
 
 
-def shell():
+def launch_shell():
     env = dict()
     while True:
         text = input('Speak to Saint He > ').strip()
@@ -52,5 +52,26 @@ def shell():
             raise e
 
 
+def launch_great_script():
+    with open('./great.he', 'r') as f:
+        content = f.read()
+    lexer = Lexer(content)
+    parser = Parser(lexer.lex())
+    env = dict()
+    parser.parse().evaluate(env)
+
+
+LAUNCHERS = {
+    'great': launch_great_script,
+    'shell': launch_shell,
+}
+
+
 if __name__ == '__main__':
-    shell()
+    target = sys.argv[-1]
+    if target not in LAUNCHERS.keys():
+        legal_targets = ', '.join(LAUNCHERS.keys())
+        print(f'Invalid launch target {target}, expected target: {legal_targets}.')
+        sys.exit(-1)
+
+    LAUNCHERS[target]()

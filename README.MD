@@ -48,22 +48,20 @@ Next-Generation **Cyber** Programming Language from Li Tang.
    > pip install -r requirements.txt
    ```
 
-3. 运行`main.py`：
+3. 你可以修改**伟大的脚本** `great.he`，然后以 `great` 的方式启动 `launch.py`：
 
    ```bash
-   > python main.py
+   > python launch.py great
    ```
 
-4. 你可以修改`great.he`，然后再次运行`main.py`，查看你的代码运行结果。
+4. 你还可以以 `shell` 的方式启动`launch.py`，通过直接输入 HeLang 指令与 **Saint He** 进行一个赛博空间的对话：
 
-5. 你可以运行`shell.py`，通过直接输入 HeLang 指令与 **Saint He** 进行一个赛博空间的对话。
-   
-   此时，在行尾就可以不输入分号了，我们会帮你加上（输入也是可以的，意味着你对 **Saint He** 更加虔诚）：
-   
    ```bash
-   > python shell.py
+   > python launch.py shell
    ```
-   
+
+   此时，在行尾就可以不输入分号了，我们会帮你加上（输入也是可以的，意味着你对 **Saint He** 更加虔诚）。
+
    输入 `.help` 获取 `Shell` 运行过程中的帮助。没错，我借鉴了 `node` 的 `REPL Keywords`。
 
 
