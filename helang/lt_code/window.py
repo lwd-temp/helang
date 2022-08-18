@@ -7,7 +7,7 @@ from .runner import Runner
 class LTCodeWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle('LTCode')
+        self.setWindowTitle('LTCode Beta')
         self.resize(800, 600)
         self._editor = Editor(self)
         self._init_layout()
