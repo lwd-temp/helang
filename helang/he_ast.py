@@ -50,6 +50,8 @@ class VarExprAST(AST):
         self._ident = ident
 
     def evaluate(self, env: Dict[str, U8]) -> U8:
+        if self._ident not in env.keys():
+            raise CyberNameException(f'{self._ident} is not defined.')
         return env[self._ident]
 
 
