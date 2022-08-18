@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QTextEdit, QVBoxLayout, QWidget
+from PySide6.QtWidgets import QTextEdit, QVBoxLayout, QWidget, QLabel
 from PySide6.QtGui import QFont, QTextCursor
 from .redirector import Redirector
 
@@ -37,6 +37,7 @@ class Editor(QWidget):
         self._source_area = _SourceArea(self)
         self._output_area = _OutputArea(self)
         self._layout.addWidget(self._source_area)
+        self._layout.addWidget(QLabel('Output'))
         self._layout.addWidget(self._output_area)
         self.setLayout(self._layout)
 

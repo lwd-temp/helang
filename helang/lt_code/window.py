@@ -21,10 +21,19 @@ class LTCodeWindow(QMainWindow):
         code_menu = menu.addMenu('&Code')
 
         run_action = QAction('&Run', self)
+        run_action.setShortcut('F5')
         run_action.triggered.connect(self._on_run_action_clicked)
         code_menu.addAction(run_action)
+
+        clear_action = QAction('&Clear', self)
+        clear_action.setShortcut('Ctrl+L')
+        clear_action.triggered.connect(self._on_clear_action_clicked)
+        code_menu.addAction(clear_action)
 
     def _on_run_action_clicked(self):
         self._editor.clear_output()
         runner = Runner(self._editor.code, self._editor.stdout)
         runner.start()
+
+    def _on_clear_action_clicked(self):
+        self._editor.clear_output()
