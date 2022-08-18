@@ -32,15 +32,22 @@ class Editor(QWidget):
         self.setLayout(self._layout)
 
     @property
-    def redirector(self):
-        return Redirector(self._write_to_output_area)
+    def stdout(self):
+        return Redirector(self._write_stdout_output)
+
+    @property
+    def stderr(self):
+        return Redirector(self._write_stderr_output)
 
     @property
     def code(self):
         return self._text_area.toPlainText()
 
-    def _write_to_output_area(self, s: str):
+    def _write_stdout_output(self, s: str):
         self._output_area.insertPlainText(s)
+
+    def _write_stderr_output(self, s: str):
+        self._output_area.insertHtml(f'<div style="color: red">{s}</div>')
 
     def clear_output(self):
         self._output_area.clear()

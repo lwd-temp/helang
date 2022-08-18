@@ -26,5 +26,5 @@ class LTCodeWindow(QMainWindow):
 
     def _on_run_action_clicked(self):
         self._editor.clear_output()
-        runner = Runner(self._editor.code, self._editor.redirector)
+        runner = Runner(self._editor.code, self._editor.stdout, self._editor.stderr)
         runner.start()

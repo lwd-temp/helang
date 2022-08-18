@@ -3,17 +3,28 @@ import threading
 
 from ..lexer import Lexer
 from ..parser import Parser
+from ..exceptions import HeLangException
 from typing import TextIO
 
 
 class Runner(threading.Thread):
-    def __init__(self, code: str, redirect_file: TextIO):
+    def __init__(self, code: str, stdout: TextIO, stderr: TextIO):
         super().__init__()
         self.code = code
-        self.redirect_file = redirect_file
+        self.stdout = stdout
+        self.stderr = stderr
 
     def run(self):
         raw_stdout = sys.stdout
-        sys.stdout = self.redirect_file
-        Parser(Lexer(self.code).lex()).parse().evaluate(dict())
+        raw_stderr = sys.stderr
+
+        sys.stdout = self.stdout
+        sys.stderr = self.stderr
+
+        try:
+            Parser(Lexer(self.code).lex()).parse().evaluate(dict())
+        except HeLangException as e:
+            print(f'{type(e).__name__}: {e}', file=sys.stderr)
+
         sys.stdout = raw_stdout
+        sys.stderr = raw_stderr
