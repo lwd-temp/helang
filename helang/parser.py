@@ -2,7 +2,7 @@ from .tokens import Token, TokenKind
 from .exceptions import BadStatementException
 from .he_ast import AST, VoidAST, ListAST, VarDefAST, VarAssignAST, VarExprAST,\
     PrintAST, SprintAST, VarIncrementAST, U8SetAST, U8GetAST, Test5GAST,\
-    EmptyU8InitAST, OrU8InitAST
+    EmptyU8InitAST, OrU8InitAST, CyberspacesAST
 from typing import List, Optional, Callable, Tuple
 
 
@@ -39,6 +39,7 @@ class Parser:
           | expr
           | test_5g
           | semicolon
+          | cyberspaces
           ;
         :return: parsed abstract syntax tree.
         """
@@ -53,6 +54,7 @@ class Parser:
             self._root_parse_expr,
             self._root_parse_test_5g,
             self._root_parse_semicolon,
+            self._root_parse_cyberspaces,
         ]
         asts = []
         while self._pos < len(self._tokens):
@@ -68,6 +70,15 @@ class Parser:
                                             f'which is {self._tokens[self._pos]}')
         # Return the AST itself if there is only one.
         return ListAST(asts) if len(asts) != 1 else asts[0]
+
+    def _root_parse_cyberspaces(self) -> CyberspacesAST:
+        """
+        cyberspaces: CYBERSPACES SEMICOLON;
+        :return: AST to check if you are in the Cyber Spaces.
+        """
+        self._expect(TokenKind.CYBERSPACES)
+        self._expect(TokenKind.SEMICOLON)
+        return CyberspacesAST()
 
     def _root_parse_semicolon(self) -> VoidAST:
         """

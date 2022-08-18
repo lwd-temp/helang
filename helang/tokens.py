@@ -42,6 +42,8 @@ class TokenKind(enum.Enum):
     TEST_5G = 19
     # Print string
     SPRINT = 20
+    # Whether current region is in the Cyber Spaces.
+    CYBERSPACES = 21
 
 
 SINGLE_CHAR_TOKEN_KINDS = {
@@ -63,6 +65,7 @@ KEYWORD_KINDS = {
     'print': TokenKind.PRINT,
     'u8': TokenKind.U8,
     'test5g': TokenKind.TEST_5G,
+    'cyberspaces': TokenKind.CYBERSPACES,
     'sprint': TokenKind.SPRINT,
 }
 

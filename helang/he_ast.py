@@ -2,6 +2,7 @@ import random
 
 from typing import Dict, Optional, List
 from .u8 import U8
+from .check_cyberspaces import check_cyberspaces
 from .speed_tester import run_speed_test
 from .exceptions import CyberNameException
 
@@ -160,3 +161,10 @@ class SprintAST(AST):
         val = ''.join(chr(char) for char in chars.value)
         print(val)
         return chars
+
+
+class CyberspacesAST(AST):
+    def evaluate(self, env: Dict[str, U8]) -> U8:
+        check_cyberspaces()
+        return U8()
+
