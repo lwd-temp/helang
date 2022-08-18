@@ -3,7 +3,7 @@ from .exceptions import BadStatementException
 from .he_ast import AST, VoidAST, ListAST, VarDefAST, VarAssignAST, VarExprAST,\
     PrintAST, SprintAST, VarIncrementAST, U8SetAST, U8GetAST, Test5GAST,\
     EmptyU8InitAST, OrU8InitAST, CyberspacesAST
-from typing import List, Optional, Callable, Tuple
+from typing import List, Optional, Callable
 
 
 class Parser:
@@ -31,12 +31,11 @@ class Parser:
         root
           : print
           | sprint
-          | u8_set
           | var_def
           | var_declare
           | var_assign
           | var_increment
-          | expr
+          | expr_statement
           | test_5g
           | semicolon
           | cyberspaces
@@ -46,12 +45,11 @@ class Parser:
         root_parsers = [
             self._root_parse_print,
             self._root_parse_sprint,
-            self._root_parse_u8_set,
             self._root_parse_var_def,
             self._root_parse_var_declare,
             self._root_parse_var_assign,
             self._root_parse_var_increment,
-            self._root_parse_expr,
+            self._root_parse_expr_statement,
             self._root_parse_test_5g,
             self._root_parse_semicolon,
             self._root_parse_cyberspaces,
@@ -160,42 +158,37 @@ class Parser:
         self._expect(TokenKind.SEMICOLON)
         return Test5GAST()
 
-    def _root_parse_u8_set(self) -> U8SetAST:
+    def _root_parse_expr_statement(self) -> AST:
         """
-        u8_set: expr LS expr RS ASSIGN expr SEMICOLON;
-        :return: AST for setting u8.
+        expr_statement: expr SEMICOLON;
+        :return:
         """
-        list_expr, subscript_expr = self._parse_u8_common_parts()
-        self._expect(TokenKind.ASSIGN)
-        value_expr = self._root_parse_expr()
+        expr = self._root_parse_expr()
         self._expect(TokenKind.SEMICOLON)
-        return U8SetAST(list_expr, subscript_expr, value_expr)
+        return expr
 
-    def _root_parse_expr(self, skip_u8=False) -> AST:
+    def _root_parse_expr(self) -> AST:
         """
         expr
-          : empty_u8_expr
-          | or_u8_expr
-          | var_expr
-          | u8_get_expr
+          : empty_u8 expr'
+          | or_u8 expr'
+          | var expr'
           ;
-        :param skip_u8: whether it should skip u8.
         :return: AST for current expression.
         """
-        expr_parsers = [self._parse_empty_u8_expr, self._parse_or_u8_expr, self._parse_u8_get_expr, self._parse_var_expr]
+        expr_parsers = [self._expr_parse_empty_u8, self._expr_parse_or_u8, self._expr_parse_var]
         for parser in expr_parsers:
-            if skip_u8 and parser == self._parse_u8_get_expr:
-                continue
             saved_pos = self._pos
             try:
-                return parser()
+                prev = parser()
+                return self._root_parse_left_recur_expr(prev)
             except BadStatementException:
                 self._pos = saved_pos
         raise BadStatementException('cannot parse expressions')
 
-    def _parse_empty_u8_expr(self) -> EmptyU8InitAST:
+    def _expr_parse_empty_u8(self) -> EmptyU8InitAST:
         """
-        empty_u8_expr: LS NUMBER RS;
+        empty_u8: LS NUMBER RS;
         :return: empty initializer for u8.
         """
         self._expect(TokenKind.LS)
@@ -203,9 +196,9 @@ class Parser:
         self._expect(TokenKind.RS)
         return EmptyU8InitAST(int(length.content))
 
-    def _parse_or_u8_expr(self) -> OrU8InitAST:
+    def _expr_parse_or_u8(self) -> OrU8InitAST:
         """
-        or_u8_expr
+        or_u8
             : NUMBER
             | NUMBER OR or_u8_expr
             ;
@@ -218,27 +211,50 @@ class Parser:
         except BadStatementException:
             return OrU8InitAST(int(first.content))
 
-        return OrU8InitAST(int(first.content), self._parse_or_u8_expr())
+        return OrU8InitAST(int(first.content), self._expr_parse_or_u8())
 
-    def _parse_var_expr(self) -> VarExprAST:
+    def _expr_parse_var(self) -> VarExprAST:
         """
-        var_expr: IDENT;
+        var: IDENT;
         :return: variable expression.
         """
         ident = self._expect(TokenKind.IDENT)
         return VarExprAST(ident.content)
 
-    def _parse_u8_get_expr(self) -> U8GetAST:
+    def _root_parse_left_recur_expr(self, prev: AST) -> AST:
         """
-        u8_get_expr: expr LS expr RS
-        :return: AST for getting u8.
+        expr'
+            : LS expr RS ASSIGN expr expr'
+            | LS expr RS expr'
+            | empty
+            ;
+        :param prev:
+        :return:
         """
-        list_expr, subscript_expr = self._parse_u8_common_parts()
-        return U8GetAST(list_expr, subscript_expr)
+        parsers: List[Callable[[AST], AST]] = [
+            self._left_recur_expr_parse_u8_set,
+            self._left_recur_expr_parse_u8_get,
+        ]
+        for parser in parsers:
+            saved_pos = self._pos
+            try:
+                prev_expr = parser(prev)
+                return self._root_parse_left_recur_expr(prev_expr)
+            except BadStatementException:
+                self._pos = saved_pos
+        # Tried all left-recursive grammars, none has matched.
+        return prev
 
-    def _parse_u8_common_parts(self) -> Tuple[AST, AST]:
-        list_expr = self._root_parse_expr(skip_u8=True)
+    def _left_recur_expr_parse_u8_set(self, list_expr: AST) -> U8SetAST:
         self._expect(TokenKind.LS)
         subscript_expr = self._root_parse_expr()
         self._expect(TokenKind.RS)
-        return list_expr, subscript_expr
+        self._expect(TokenKind.ASSIGN)
+        value_expr = self._root_parse_expr()
+        return U8SetAST(list_expr, subscript_expr, value_expr)
+
+    def _left_recur_expr_parse_u8_get(self, list_expr: AST) -> U8GetAST:
+        self._expect(TokenKind.LS)
+        subscript_expr = self._root_parse_expr()
+        self._expect(TokenKind.RS)
+        return U8GetAST(list_expr, subscript_expr)
