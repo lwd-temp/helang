@@ -95,7 +95,7 @@ def test_semicolon():
     assert env['a'] == [1]
 
 
-def skip_test_sub():
+def test_sub():
     parse("""
         u8 a = 4 | 6 | 7;
         u8 b = 2 | 3 | 4;
