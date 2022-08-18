@@ -185,6 +185,38 @@ print a;
 // 2 | 3 | 4
 ```
 
+## 加减运算
+
+**Saint He** 曾说，`whichKey - 1`，所以我们现在也提供减法运算了。
+
+```c
+u8 whichKey = 1 | 2 | 6 | 7;
+print whichKey - 1;
+// 0 | 1 | 5 | 6
+```
+
+下面以几个实例介绍如何在 `u8` 之间进行运算：
+
+```c
+u8 a = 1;
+u8 b = 1 | 2 | 3;
+u8 c = 2 | 4 | 6;
+u8 d = 5 | 9;
+
+print a + b;
+// 2 | 3 | 4
+print b + c;
+// 3 | 6 | 9
+print b - c;
+// -1 | -2 | -3
+print b + d;
+// helang.exceptions.CyberArithmeticException: illegal operation: 1 | 2 | 3 + 5 | 9
+print a - b;
+// helang.exceptions.CyberArithmeticException: illegal operation: 1 - 1 | 2 | 3
+```
+
+相信即使你是一个初入 **Cyber Spaces** 新手，也可以看出来什么是合法的语句了。
+
 ## 变量声明与赋值
 
 在早期版本中，我们的仅仅支持变量的定义，不支持修改和声明，因为 **Saint He** 喜欢 `immutable`。
