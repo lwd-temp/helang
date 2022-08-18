@@ -24,6 +24,7 @@ def _get_region() -> str:
 
 
 def check_cyberspaces():
+    print('Getting your location...')
     region = _get_region()
     print(f'Your location is {region}.')
     if region in _AMERICAN_REGIONS:
