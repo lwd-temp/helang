@@ -37,29 +37,7 @@ Next-Generation **Cyber** Programming Language from Li Tang.
 
 ## 使用方法
 
-### pip安装
-
-> 后续可以添加到pypi
-
-1. 把源代码拉下来：
-
-   ```bash
-   > git clone git@github.com:kifuan/helang.git
-   ```
-   
-2. 安装：
-   
-   ```bash
-   > pip install .
-   ```
-
-3. 运行
-
-    ```bash
-    > helang shell
-    ```
-
-### 源码安装
+### 不安装，直接使用
 
 1. 把源代码拉下来：
 
@@ -90,9 +68,29 @@ Next-Generation **Cyber** Programming Language from Li Tang.
    输入 `.help` 获取 `Shell` 运行过程中的帮助。没错，我借鉴了 `node` 的 `REPL Keywords`。
 
 
-好，就这么多，应该没什么难的。
+### 安装到本地
+
+1. 把源代码拉下来：
+
+   ```bash
+   > git clone git@github.com:kifuan/helang.git
+   ```
+
+2. 安装：
+
+   ```bash
+   > pip install .
+   ```
+
+3. 运行
+
+    ```bash
+    > helang shell
+    ```
+
 
 注：如果你来自锑星，则不需要使用 sol3 土著的愚蠢技术。你可以使用 1.14514 超克的`烷氮` ，通过`超理作用`触发赛博空间的全局中断，从而通过超理直接运行。  
+
 请注意：此行为十分危险且有概率失败，失败时如果附近存在`钅鸡铌钛镁`则会受到催化从而生成`烷基八氮`，此行为需要受到超理委员会的严格监管。
 
 ## 基本语法
