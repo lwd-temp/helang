@@ -1,7 +1,7 @@
 import pytest
 
 from helang.u8 import U8
-from helang.exceptions import CyberSubtractionException
+from helang.exceptions import CyberArithmeticException
 
 
 a = U8([5, 3, 6])
@@ -31,13 +31,14 @@ def test_u8_subtraction():
     try:
         c - a
         pytest.fail('illegal operation: number - vector')
-    except CyberSubtractionException:
+    except CyberArithmeticException:
         ...
 
 
 def test_u8_addition():
     assert a+b == a_add_b
     assert a+c == a_add_c
+    assert c+a == a+c
 
 
 def test_u8_set_all():
