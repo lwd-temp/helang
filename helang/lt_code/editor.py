@@ -1,5 +1,5 @@
 from PySide6.QtWidgets import QTextEdit, QVBoxLayout, QWidget
-from PySide6.QtGui import QFont
+from PySide6.QtGui import QFont, QTextCursor
 from .redirector import Redirector
 
 _OUTPUT_FONT = QFont('Consolas')
@@ -20,6 +20,10 @@ class _OutputArea(QTextEdit):
         super().__init__(parent)
         self.setFont(_OUTPUT_FONT)
         self.setReadOnly(True)
+
+    def insertPlainText(self, text: str) -> None:
+        super().insertPlainText(text)
+        self.moveCursor(QTextCursor.End)
 
 
 class Editor(QWidget):
