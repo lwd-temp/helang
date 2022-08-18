@@ -66,7 +66,8 @@ class Parser:
             else:
                 raise BadStatementException(f'failed to parse tokens started from {self._pos}, '
                                             f'which is {self._tokens[self._pos]}')
-        return ListAST(asts)
+        # Return the AST itself if there is only one.
+        return ListAST(asts) if len(asts) != 1 else asts[0]
 
     def _root_parse_semicolon(self) -> VoidAST:
         """

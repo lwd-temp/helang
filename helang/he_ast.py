@@ -97,10 +97,9 @@ class ListAST(AST):
         self.asts = asts
 
     def evaluate(self, env: Dict[str, U8]) -> U8:
-        last = U8()
         for ast in self.asts:
-            last = ast.evaluate(env)
-        return last
+            ast.evaluate(env)
+        return U8()
 
 
 class VoidAST(AST):
