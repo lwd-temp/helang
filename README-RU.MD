@@ -229,7 +229,7 @@ test5g;
 
 ## Итоги
 
-Подпишитесь на [Yongchu Taffy] (https://space.bilibili.com/1265680561), подпишитесь на Yongchu Taffy, спасибо.
+Подпишитесь на [Yongchu Taffy](https://space.bilibili.com/1265680561), подпишитесь на Yongchu Taffy, спасибо.
 
 Подпишитесь на [Mao Lei NyaRu_Official](https://space.bilibili.com/697091119) Спасибо, мяу, я хочу есть китайский рис мяу.
 
