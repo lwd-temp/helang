@@ -106,3 +106,18 @@ def test_sub():
 
     assert env['a_b'] == [2, 3, 3]
     assert env['a_b_c'] == [1, 2, 2]
+
+
+def test_add():
+    parse("""
+        u8 a = 1 | 2 | 3;
+        u8 b = 2;
+        u8 c = 2 | 3 | 4;
+        u8 a_add_b = a + b;
+        u8 sum = a + b + c;
+        u8 two = 1 + 1;
+    """).evaluate(env)
+
+    assert env['a_add_b'] == [3, 4, 5]
+    assert env['sum'] == [5, 7, 9]
+    assert env['two'] == [2]
