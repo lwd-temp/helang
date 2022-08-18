@@ -69,7 +69,7 @@ LAUNCHERS = {
 
 def main():
     """
-    main function
+    Main function
     """
     target = sys.argv[-1]
     if target not in LAUNCHERS.keys():
