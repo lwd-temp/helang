@@ -12,6 +12,9 @@ b_a = [-3, 3, 1]
 a_c = [3, 1, 4]
 b_c = [0, 4, 5]
 
+a_add_b = [7, 9, 13]
+a_add_c = [7, 5, 8]
+
 
 def test_u8_compare():
     assert a == a
@@ -30,6 +33,11 @@ def test_u8_subtraction():
         pytest.fail('illegal operation: number - vector')
     except CyberSubtractionException:
         ...
+
+
+def test_u8_addition():
+    assert a+b == a_add_b
+    assert a+c == a_add_c
 
 
 def test_u8_set_all():

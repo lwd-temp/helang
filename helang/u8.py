@@ -48,6 +48,10 @@ class U8:
 
         raise CyberSubtractionException(f'illegal subtraction: {self.value} - {other.value}')
 
+    def __add__(self, other: 'U8'):
+        other = U8([-i for i in other.value])
+        return self - other
+
     def __getitem__(self, subscripts: 'U8'):
         # Like the operation of sublist.
         # And Saint He likes arrays whose subscript start from 1.
