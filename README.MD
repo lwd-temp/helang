@@ -184,6 +184,16 @@ c = 1 | 2 | 3;
 
 我们作为高科技语言，当然是需要严谨的。
 
+## 查看你是否在 Cyber Spaces
+
+为了见到 **Saint He**，你需要身处 **Cyber Spaces**。输入下方命令查看你是否身处其中：
+
+```c
+cyberspaces;
+// Your location is UNITED STATES.
+// Congratulations! You are in the Cyber Spaces!
+```
+
 ## 5G测速
 
 理论上这块也属于语法，但我就是要把它单独摘出来。
