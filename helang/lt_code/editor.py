@@ -2,32 +2,37 @@ from PySide6.QtWidgets import QTextEdit, QVBoxLayout, QWidget
 from PySide6.QtGui import QFont
 from .redirector import Redirector
 
-FONT = QFont('Consolas')
-FONT.setPointSize(18)
+_OUTPUT_FONT = QFont('Consolas')
+_OUTPUT_FONT.setPointSize(12)
+
+_SOURCE_FONT = QFont('Consolas')
+_SOURCE_FONT.setPointSize(16)
 
 
-class _TextArea(QTextEdit):
+class _SourceArea(QTextEdit):
     def __init__(self, parent: QWidget):
         super().__init__(parent)
+        self.setFont(_SOURCE_FONT)
 
 
 class _OutputArea(QTextEdit):
     def __init__(self, parent: QWidget):
         super().__init__(parent)
+        self.setFont(_OUTPUT_FONT)
+        self.setReadOnly(True)
 
 
 class Editor(QWidget):
     def __init__(self, parent: QWidget):
         super().__init__(parent)
         self.resize(800, 600)
-        self.setFont(FONT)
         self._init_areas()
 
     def _init_areas(self):
         self._layout = QVBoxLayout()
-        self._text_area = _TextArea(self)
+        self._source_area = _SourceArea(self)
         self._output_area = _OutputArea(self)
-        self._layout.addWidget(self._text_area)
+        self._layout.addWidget(self._source_area)
         self._layout.addWidget(self._output_area)
         self.setLayout(self._layout)
 
@@ -36,18 +41,11 @@ class Editor(QWidget):
         return Redirector(self._write_stdout_output)
 
     @property
-    def stderr(self):
-        return Redirector(self._write_stderr_output)
-
-    @property
     def code(self):
-        return self._text_area.toPlainText()
+        return self._source_area.toPlainText()
 
     def _write_stdout_output(self, s: str):
         self._output_area.insertPlainText(s)
-
-    def _write_stderr_output(self, s: str):
-        self._output_area.insertHtml(f'<div style="color: red">{s}</div>')
 
     def clear_output(self):
         self._output_area.clear()
