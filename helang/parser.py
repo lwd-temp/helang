@@ -231,6 +231,7 @@ class Parser:
             : LS expr RS ASSIGN expr expr'
             | LS expr RS expr'
             | SUB expr expr'
+            | ADD expr expr'
             | empty
             ;
         :param prev:
@@ -240,6 +241,7 @@ class Parser:
             self._left_recur_expr_parse_u8_set,
             self._left_recur_expr_parse_u8_get,
             self._left_recur_expr_parse_sub,
+            self._left_recur_expr_parse_add,
         ]
         for parser in parsers:
             saved_pos = self._pos
@@ -269,3 +271,8 @@ class Parser:
         self._expect(TokenKind.SUB)
         second = self._root_parse_expr()
         return ArithmeticAST(first, second, ArithmeticOperator.SUB)
+
+    def _left_recur_expr_parse_add(self, first: AST) -> ArithmeticAST:
+        self._expect(TokenKind.ADD)
+        second = self._root_parse_expr()
+        return ArithmeticAST(first, second, ArithmeticOperator.ADD)
