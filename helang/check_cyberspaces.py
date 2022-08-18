@@ -25,8 +25,8 @@ def _get_region() -> str:
 
 def check_cyberspaces():
     region = _get_region()
-    print(f'You are in {region}')
+    print(f'Your location is {region}.')
     if region in _AMERICAN_REGIONS:
         print('Congratulations! You are in the Cyber Spaces!')
     else:
-        print('What a pity! It seems that you are not in the Cyber Spaces')
+        print('What a pity! It seems that you are not in the Cyber Spaces.')
