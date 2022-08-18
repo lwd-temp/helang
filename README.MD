@@ -20,6 +20,10 @@ Next-Generation **Cyber** Programming Language from Li Tang.
 
 ## 介绍
 
+> 至此`HeLang`、`Jvav`、`C--`在21世纪呈三足鼎立之态。
+> 
+> ——《赛博时代人类编程语言简史》
+
 次世代赛博编程语言，诞生于**E-SMOKER**之乡：赛博理塘。
 
 本项目是由自己会打字的5G键盘，花了108赛博分钟，在AirDesk上配合AirPods编写的。
