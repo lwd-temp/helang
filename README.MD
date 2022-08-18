@@ -64,7 +64,7 @@ Next-Generation **Cyber** Programming Language from Li Tang.
    > python shell.py
    ```
    
-   输入 `.help` 获取 `Shell` 运行过程中的帮助。没错，我借鉴了 `node` 的 `REPL Keywords`.
+   输入 `.help` 获取 `Shell` 运行过程中的帮助。没错，我借鉴了 `node` 的 `REPL Keywords`。
 
 
 好，就这么多，应该没什么难的。
