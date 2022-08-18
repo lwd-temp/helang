@@ -40,4 +40,7 @@ class Editor(QWidget):
         return self._text_area.toPlainText()
 
     def _write_to_output_area(self, s: str):
-        self._output_area.append(s)
+        self._output_area.insertPlainText(s)
+
+    def clear_output(self):
+        self._output_area.clear()

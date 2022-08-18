@@ -25,5 +25,6 @@ class LTCodeWindow(QMainWindow):
         code_menu.addAction(run_action)
 
     def _on_run_action_clicked(self):
+        self._editor.clear_output()
         runner = Runner(self._editor.code, self._editor.redirector)
         runner.start()
