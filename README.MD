@@ -22,7 +22,7 @@ Next-Generation **Cyber** Programming Language from Li Tang.
 
 > 至此`HeLang`、`Jvav`、`C--`在21世纪呈三足鼎立之态。
 > 
-> ——《赛博时代人类编程语言简史》
+> ——《赛博时代人类编程语言简史》理塘计算机科学技术出版社，2202年。
 
 次世代赛博编程语言，诞生于**E-SMOKER**之乡：赛博理塘。
 
