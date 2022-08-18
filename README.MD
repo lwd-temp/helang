@@ -1,11 +1,11 @@
-# [中文](https://github.com/kifuan/helang#readme)
-# [Русский](https://github.com/kifuan/Readme-ru.md) 
 # HeLang：何语言
 
 <a href="https://github.com/kifuan/helang/stargazers"><img src="https://img.shields.io/github/stars/kifuan/helang.svg" alt="Stars"></a>
 <a href="https://github.com/kifuan/helang/issues"><img src="https://img.shields.io/github/issues/kifuan/helang" alt="Issues"></a>
 <a href="LICENSE"><img src="https://img.shields.io/github/license/kifuan/helang" alt="MIT License"></a>
 <a href="https://github.com/kifuan/helang/actions/workflows/tests.yml"><img src="https://github.com/kifuan/helang/actions/workflows/tests.yml/badge.svg" alt="Test"></a>
+
+[中文](README.MD) [Русский](README-RU.MD)
 
 
 Next-Generation **Cyber** Programming Language from Li Tang.
