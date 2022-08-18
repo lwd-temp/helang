@@ -22,17 +22,16 @@ MUSIC_SIZE_MB_RANGE = (10, 30)
 SUMMARY_STRING = '''
 === HeLang protects your every pure download ===
 Data used | {}MB
-Download files | {}
+Downloaded files | {}
 Location | BUPT Xitucheng Campus
-
-5G speed test finished
 
 === HeLang protects your pure disk memory ===
 All test files were deleted
 Data freed | {}MB
-Delete files | {}
+Deleted files | {}
 Location | BUPT Xitucheng Campus
-=============================================
+
+5G speed test finished.
 '''.strip()
 
 
@@ -45,7 +44,7 @@ def run_speed_test():
         file = music + random.choice(SUFFIX)
         vip_suffix = '' if music == 'ZOOD' else ' [VIP]'
         print()
-        print(f'Downloading {file}...{vip_suffix}')
+        print(f'    Downloading {file}...{vip_suffix}')
         for _ in tqdm.tqdm(range(curr_size), file=sys.stdout, total=curr_size, unit='MB'):
             # 1ms to 10ms
             time.sleep(random.randint(1, 10) / 1000)
