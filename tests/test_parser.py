@@ -93,3 +93,16 @@ def test_semicolon():
     """).evaluate(env)
 
     assert env['a'] == [1]
+
+
+def skip_test_sub():
+    parse("""
+        u8 a = 4 | 6 | 7;
+        u8 b = 2 | 3 | 4;
+        u8 c = 1;
+        u8 a_b = a - b;
+        u8 a_b_c = a - b - c;
+    """).evaluate(env)
+
+    assert env['a_b'] == [2, 3, 3]
+    assert env['a_b_c'] == [1, 2, 2]
