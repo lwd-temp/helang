@@ -2,7 +2,7 @@ import tqdm
 import time
 import random
 import sys
-from get_location import get_location, get_qrcode
+from .get_location import get_location, get_qrcode
 
 MUSICS = [
     'Kill You', 'Lighters', 'ZOOD', 'Love the Way You Lie',
