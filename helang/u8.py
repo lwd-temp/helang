@@ -1,4 +1,5 @@
-from typing import Optional, List, Union, Tuple
+from typing import Optional, List, Union, Tuple, Generator
+from inspect import isgenerator
 from .exceptions import (
     CyberArithmeticException, CyberU8ComparingException,
     CyberNotSupportedException
@@ -9,11 +10,13 @@ class U8:
     """
     The Saint He's specific type.
     """
-    def __init__(self, value: Optional[Union[List[int], int]] = None):
+    def __init__(self, value: Optional[Union[List[int], Generator[int, None, None], int]] = None):
         if value is None:
             self.value = []
         elif isinstance(value, int):
             self.value = [value]
+        elif isgenerator(value):
+            self.value = list(value)
         elif isinstance(value, list):
             self.value = value
         else:
@@ -26,7 +29,7 @@ class U8:
         return str(self)
 
     def __neg__(self):
-        return U8([-v for v in self.value])
+        return U8(-v for v in self.value)
 
     def increment(self):
         self.value = [v+1 for v in self.value]
@@ -39,22 +42,22 @@ class U8:
 
         if len(b.value) == 1:
             # Normal addition.
-            return U8([v + b.value[0] for v in a.value])
+            return U8(v + b.value[0] for v in a.value)
 
         if len(a.value) == len(b.value):
             # Vector addition.
-            return U8([a.value[i] + b.value[i] for i in range(len(a.value))])
+            return U8(a.value[i] + b.value[i] for i in range(len(a.value)))
 
         raise CyberArithmeticException(f'illegal operation: {self} + {other}')
 
     def __sub__(self, other: 'U8'):
         if len(other.value) == 1:
             # Normal subtraction.
-            return U8([v - other.value[0] for v in self.value])
+            return U8(v - other.value[0] for v in self.value)
 
         if len(other.value) == len(self.value):
             # Vector subtraction.
-            return U8([self.value[i] - other.value[i] for i in range(len(self.value))])
+            return U8(self.value[i] - other.value[i] for i in range(len(self.value)))
 
         raise CyberArithmeticException(f'illegal operation: {self} - {other}')
 
@@ -70,7 +73,7 @@ class U8:
     def __getitem__(self, subscripts: 'U8'):
         # Like the operation of sublist.
         # And Saint He likes arrays whose subscript start from 1.
-        return U8([self.value[i-1] for i in range(1, len(self.value) + 1) if i in subscripts.value])
+        return U8(self.value[i-1] for i in range(1, len(self.value) + 1) if i in subscripts.value)
 
     def __setitem__(self, subscripts: 'U8', value: 'U8'):
         if len(value.value) > 1:
