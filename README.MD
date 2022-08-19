@@ -4,12 +4,6 @@
    </a>
 </p>
 
-<div align="center">
-
-# HeLang：何语言
-
-</div>
-
 
 <p align="center">
 <a href="https://github.com/kifuan/helang/stargazers"><img src="https://img.shields.io/github/stars/kifuan/helang.svg" alt="Stars"></a>
