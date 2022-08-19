@@ -32,13 +32,13 @@ APPS_SIZE_MB_RANGE = (16 * 1024, 30 * 1024)
 
 SUMMARY_STRING = '''
 === HeLang protects your every pure download ===
-Data used | {}MB
+Data used | {}{unit}
 Downloaded files | {}
 Location | BUPT Xitucheng Campus
 
 === HeLang protects your pure disk memory ===
 All test files were deleted
-Data freed | {}MB
+Data freed | {}{unit}
 Deleted files | {}
 Location | BUPT Xitucheng Campus
 
@@ -62,7 +62,7 @@ def run_speed_test_music():
         time.sleep(random.randint(30, 70) / 1000)
         total_size += curr_size
     print()
-    print(SUMMARY_STRING.format(total_size, len(MUSICS), total_size, len(MUSICS)))
+    print(SUMMARY_STRING.format(total_size, len(MUSICS), total_size, len(MUSICS), unit='MB'))
 
 
 def run_speed_test_app():
@@ -80,4 +80,4 @@ def run_speed_test_app():
         time.sleep(random.randint(30, 70) / 1000)
         total_size += curr_size
     print()
-    print(SUMMARY_STRING.format(total_size, len(APPS), total_size, len(APPS)))
+    print(SUMMARY_STRING.format(total_size, len(APPS), total_size, len(APPS), unit='GB'))
