@@ -20,18 +20,14 @@ MUSIC_SIZE_MB_RANGE = (10, 30)
 
 
 APPS = [
-    'Apple Store', 'Speed-test', 'Genshin Impact',
-    'Arknights', 'Bilibili', 'Hetellij IDEA',
-    'Henity 3D', 'Hereal Engine'
+    'Genshin Impact v3.0',
+    'Arknights v1861',
+    'Hetellij IDEA v2021.1',
+    'Henity 3D v2022.1.13',
+    'Hereal Engine v5.0.0',
 ]
 
-APPS_VER = [
-    "V5.17", "V4.4.3"
-]
-
-APPS_SIZE = [
-    84,	107
-]
+APPS_SIZE_MB_RANGE = (16 * 1024, 30 * 1024)
 
 
 SUMMARY_STRING = '''
@@ -71,13 +67,14 @@ def run_speed_test_music():
 
 def run_speed_test_app():
     print('Cyber DJ is downloading apps via 5G...')
+    print('Your VIP level: E-SMOKER-KING. Speeding up by 102400%...')
+    random.shuffle(APPS)
     total_size = 0
     for app in APPS:
-        curr_size = APPS_SIZE[APPS.index(app)]
-        file = app + " " + APPS_VER[APPS.index(app)]
+        curr_size = random.randint(*APPS_SIZE_MB_RANGE) // 1024
         print()
-        print(f'    Downloading {file}...')
-        for _ in tqdm.tqdm(range(curr_size), file=sys.stdout, total=curr_size, unit='MB'):
+        print(f'    Downloading {app}...')
+        for _ in tqdm.tqdm(range(curr_size), file=sys.stdout, total=curr_size, unit='GB'):
             # 1ms to 10ms
             time.sleep(random.randint(1, 10) / 1000)
         time.sleep(random.randint(30, 70) / 1000)
