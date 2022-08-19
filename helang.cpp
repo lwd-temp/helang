@@ -1,4 +1,4 @@
-// A shit parody for Saint He's cyber language.
+// A shit parody of Saint He's cyber language.
 
 #include <utility>
 #include <vector>
