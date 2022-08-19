@@ -315,8 +315,6 @@ cyberspaces;
 
 # 5G Speedtest
 
-Theoretically, this is also a part of the grammar, but I just want to single it out.
-
 It's very simple, and all you need is to start a new line and type: 
 
 ```c
