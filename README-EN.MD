@@ -24,7 +24,7 @@ WATCH THE GREAT VIDEO! https://www.bilibili.com/video/BV1XW4y1h79A/
 
 # Re-creation
 
-Very good works! Love from **Cyber Space**!
+Very good works! Love from **Cyber Spaces**!
 
 + Helang `Kotlin` Script Implementation [HeLangKotlinScriptImpl](https://github.com/shaokeyibb/HeLangKotlinScriptImpl) --- [Implementation Rationale](https://my.minecraft.kim/tech/2022/08/18/post-740/)
 + Helang `C#` Implementation [HeLangSharp](https://github.com/Cyl18/HeLangSharp)
