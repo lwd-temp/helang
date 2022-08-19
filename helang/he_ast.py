@@ -224,7 +224,7 @@ def _calc(nums: List[U8], ops: List[Operator]):
     nums.append(op.operate(a, b))
 
 
-class ArithmeticAST(AST):
+class OperationAST(AST):
     def __init__(self, first: AST, second: AST, op: Operator):
         self._first = first
         self._second = second
@@ -255,14 +255,14 @@ class ArithmeticAST(AST):
     def _to_expression(self, env: Dict[str, U8]) -> List[Union[U8, Operator]]:
         expr = []
 
-        if isinstance(self._first, ArithmeticAST):
+        if isinstance(self._first, OperationAST):
             expr.extend(self._first._to_expression(env))
         else:
             expr.append(self._first.evaluate(env))
 
         expr.append(self._op)
 
-        if isinstance(self._second, ArithmeticAST):
+        if isinstance(self._second, OperationAST):
             expr.extend(self._second._to_expression(env))
         else:
             expr.append(self._second.evaluate(env))

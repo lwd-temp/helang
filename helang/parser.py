@@ -5,7 +5,7 @@ from .exceptions import BadStatementException
 from .he_ast import (
     AST, VoidAST, ListAST, VarDefAST, VarAssignAST, VarExprAST,
     PrintAST, SprintAST, VarIncrementAST, U8SetAST, U8GetAST, Test5GAST,
-    EmptyU8InitAST, OrU8InitAST, CyberspacesAST, ArithmeticAST, Operator,
+    EmptyU8InitAST, OrU8InitAST, CyberspacesAST, OperationAST, Operator,
     LogoAST
 )
 
@@ -275,9 +275,7 @@ class Parser:
         expr'
             : LS expr RS ASSIGN expr expr'
             | LS expr RS expr'
-            | (ADD | SUB) expr expr'
-            | MUL expr expr'
-            | (LT | GT | LEQ | GEQ | EQ | NEQ) expr expr'
+            | (ADD | SUB | MUL | CMP) expr expr'
             | empty
             ;
         :param prev:
@@ -310,19 +308,13 @@ class Parser:
         return U8GetAST(list_expr, subscript_expr)
 
     @_ruled_methods.bind(Rule.EXPR_LEFT_RECURSIVE)
-    def _left_recur_expr_parse_add_sub(self, first: AST) -> ArithmeticAST:
-        operator = self._expect([TokenKind.ADD, TokenKind.SUB])
+    def _left_recur_expr_parse_operation(self, first: AST) -> OperationAST:
+        operator = self._expect([
+            TokenKind.ADD, TokenKind.SUB,
+            TokenKind.MUL, TokenKind.LT,
+            TokenKind.LEQ, TokenKind.GT,
+            TokenKind.GEQ, TokenKind.NEQ,
+            TokenKind.EQ
+        ])
         second = self._root_parse_expr()
-        return ArithmeticAST(first, second, Operator.from_token(operator))
-
-    @_ruled_methods.bind(Rule.EXPR_LEFT_RECURSIVE)
-    def _left_recur_expr_parse_mul(self, first: AST) -> ArithmeticAST:
-        self._expect(TokenKind.MUL)
-        second = self._root_parse_expr()
-        return ArithmeticAST(first, second, Operator.MUL)
-
-    @_ruled_methods.bind(Rule.EXPR_LEFT_RECURSIVE)
-    def _left_recur_expr_parse_compare(self, first: AST) -> ArithmeticAST:
-        cmp = self._expect([TokenKind.LT, TokenKind.LEQ, TokenKind.GT, TokenKind.GEQ, TokenKind.NEQ, TokenKind.EQ])
-        second = self._root_parse_expr()
-        return ArithmeticAST(first, second, Operator.from_token(cmp))
+        return OperationAST(first, second, Operator.from_token(operator))
