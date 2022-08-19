@@ -1,10 +1,12 @@
+from enum import Enum
+from typing import List, Optional, Callable
 from .tokens import Token, TokenKind
 from .exceptions import BadStatementException
-from .he_ast import AST, VoidAST, ListAST, VarDefAST, VarAssignAST, VarExprAST,\
-    PrintAST, SprintAST, VarIncrementAST, U8SetAST, U8GetAST, Test5GAST,\
+from .he_ast import (
+    AST, VoidAST, ListAST, VarDefAST, VarAssignAST, VarExprAST,
+    PrintAST, SprintAST, VarIncrementAST, U8SetAST, U8GetAST, Test5GAST,
     EmptyU8InitAST, OrU8InitAST, CyberspacesAST, ArithmeticAST, ArithmeticOperator
-from typing import List, Optional, Callable
-from enum import Enum
+)
 
 
 class RuledMethods:
