@@ -14,13 +14,15 @@
 
 # Обзор
 
+
 [Русский](README-RU.MD) [中文](README.MD)
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=kifuan/helang&type=Date)](https://star-history.com/#kifuan/helang&Date)
 
 
 Язык программирования нового поколения **Cyber** из ли тана.
-
-
-
 
 отличная работа！любовь от **Cyber Spaces**！
 
@@ -31,7 +33,6 @@
 [![Star History Chart](https://api.star-history.com/svg?repos=kifuan/helang&type=Date)](https://star-history.com/#kifuan/helang&Date)
 
 # Что это
-
 
 Язык киберпрограммирования следующего поколения, родился в городе **E-SMOKER**: Cyber ​​Litang.
 
