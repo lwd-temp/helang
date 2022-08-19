@@ -1,6 +1,6 @@
 <p align="center">
    <a href="https://space.bilibili.com/163637592" target="_blank" rel="noopener noreferrer">
-      <img width="400" src="logo.svg" alt="Logo">
+      <img width="300" src="logo.svg" alt="Logo">
    </a>
 </p>
 
