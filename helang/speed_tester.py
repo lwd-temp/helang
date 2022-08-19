@@ -4,28 +4,28 @@ import random
 import sys
 
 
-MUSICS = [
+MUSICS = (
     'Kill You', 'Lighters', 'ZOOD', 'Love the Way You Lie',
     'The Monster', 'Numb Encore', 'Kinds Never Die', 'I Need a Doctor',
     'Lose Yourself', 'Mockingbird', 'Beautiful', 'Not Afraid',
     'Rap God', 'Phenomenal', 'Stan', 'Space Bound', 'Stan',
     'Guts Over Fear', 'Spade'
-]
+)
 
-SUFFIXES = [
+SUFFIXES = (
     '.mp3', '.ogg', '.flac'
-]
+)
 
 MUSIC_SIZE_MB_RANGE = (10, 30)
 
 
-APPS = [
+APPS = (
     'Genshin Impact v3.0',
     'Arknights v1861',
     'Hetellij IDEA v2021.1',
     'Henity 3D v2022.1.13',
     'Hereal Engine v5.0.0',
-]
+)
 
 APPS_SIZE_MB_RANGE = (16 * 1024, 30 * 1024)
 
@@ -48,7 +48,6 @@ Location | BUPT Xitucheng Campus
 
 def run_speed_test_music():
     print('Cyber DJ is downloading apps via 5G...')
-    random.shuffle(MUSICS)
     total_size = 0
     for music in MUSICS:
         curr_size = random.randint(*MUSIC_SIZE_MB_RANGE)
@@ -68,7 +67,6 @@ def run_speed_test_music():
 def run_speed_test_app():
     print('Cyber DJ is downloading apps via 5G...')
     print('Your VIP level: E-SMOKER-KING. Speeding up by 102400%...')
-    random.shuffle(APPS)
     total_size = 0
     for app in APPS:
         curr_size = random.randint(*APPS_SIZE_MB_RANGE) // 1024
