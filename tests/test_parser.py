@@ -118,3 +118,23 @@ def test_mixed_expr():
     ''', env)
 
     assert env['result'] == [51, 53]
+
+
+def test_cmp():
+    quick_run_string('''
+        u8 a_true = 1 | 2 < 3 | 4;
+        u8 b_false = 1 | 5 < 3 | 4 | 2;
+        u8 c_true = 1 | 2 <= 1 | 2 | 4;
+        u8 d_true = 4 | 5 | 6 > 1 | 3;
+        u8 e_true = 4 | 5 | 6 >= 4 | 2;
+        u8 f_true = 1 | 2 == 1 | 2 | 0;
+        u8 g_true = 1 | 2 != 2 | 1;
+    ''', env)
+
+    assert env['a_true']
+    assert not env['b_false']
+    assert env['c_true']
+    assert env['d_true']
+    assert env['e_true']
+    assert env['f_true']
+    assert env['g_true']

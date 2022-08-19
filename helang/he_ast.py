@@ -4,7 +4,7 @@ from typing import Dict, Optional, List, Union
 from .u8 import U8
 from .check_cyberspaces import check_cyberspaces
 from .speed_tester import run_speed_test
-from .exceptions import CyberNameException
+from .exceptions import CyberNameException, CyberNotSupportedException
 from .tokens import Token, TokenKind
 
 
@@ -194,6 +194,8 @@ class ArithmeticAST(AST):
                     stack.append(-num)
                 elif pre_sign == ArithmeticOperator.MUL:
                     stack.append(stack.pop() * num)
+                else:
+                    raise CyberNotSupportedException(f'illegal operator: {pre_sign}')
                 pre_sign = expr[i]
                 num = U8(0)
         result = U8(0)
@@ -217,6 +219,54 @@ class ArithmeticAST(AST):
             expr.append(self._second.evaluate(env))
 
         return expr
+
+
+class Comparator(enum.Enum):
+    LT = 1
+    LEQ = 2
+    GT = 3
+    GEQ = 4
+    EQ = 5
+    NEQ = 6
+
+    @classmethod
+    def from_token(cls, token: Token):
+        mapper = {
+            TokenKind.LT:  cls.LT,
+            TokenKind.LEQ: cls.LEQ,
+            TokenKind.GT:  cls.GT,
+            TokenKind.GEQ: cls.GEQ,
+            TokenKind.EQ:  cls.EQ,
+            TokenKind.NEQ: cls.NEQ,
+        }
+        return mapper[token.kind]
+
+    def compare(self, a: U8, b: U8):
+        # I don't like else.
+        if self == Comparator.LT:
+            return a < b
+        if self == Comparator.LEQ:
+            return a <= b
+        if self == Comparator.GT:
+            return a > b
+        if self == Comparator.GEQ:
+            return a >= b
+        if self == Comparator.EQ:
+            return a == b
+        if self == Comparator.NEQ:
+            return a != b
+        raise CyberNotSupportedException(f'illegal comparator: {self}')
+
+
+class ComparatorAST(AST):
+    def __init__(self, first: AST, second: AST, cmp: Comparator):
+        self._first = first
+        self._second = second
+        self._cmp = cmp
+
+    def evaluate(self, env: Dict[str, U8]) -> U8:
+        res = self._cmp.compare(self._first.evaluate(env), self._second.evaluate(env))
+        return U8(int(res))
 
 
 class LogoAST(AST):

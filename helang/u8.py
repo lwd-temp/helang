@@ -129,3 +129,8 @@ class U8:
 
         a, b, u8len = U8._fill_zero(self, other)
         return all(a.value[i] == b.value[i] for i in range(u8len))
+
+    def __bool__(self):
+        if len(self.value) != 1:
+            raise CyberNotSupportedException(f'{self} cannot be used as a bool')
+        return bool(self.value[0])

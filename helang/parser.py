@@ -6,7 +6,7 @@ from .he_ast import (
     AST, VoidAST, ListAST, VarDefAST, VarAssignAST, VarExprAST,
     PrintAST, SprintAST, VarIncrementAST, U8SetAST, U8GetAST, Test5GAST,
     EmptyU8InitAST, OrU8InitAST, CyberspacesAST, ArithmeticAST, ArithmeticOperator,
-    LogoAST
+    LogoAST, Comparator, ComparatorAST
 )
 
 
@@ -275,9 +275,9 @@ class Parser:
         expr'
             : LS expr RS ASSIGN expr expr'
             | LS expr RS expr'
-            | SUB expr expr'
-            | ADD expr expr'
+            | (ADD | SUB) expr expr'
             | MUL expr expr'
+            | (LT | GT | LEQ | GEQ | EQ | NEQ) expr expr'
             | empty
             ;
         :param prev:
@@ -320,3 +320,9 @@ class Parser:
         self._expect(TokenKind.MUL)
         second = self._root_parse_expr()
         return ArithmeticAST(first, second, ArithmeticOperator.MUL)
+
+    @_ruled_methods.bind(Rule.EXPR_LEFT_RECURSIVE)
+    def _left_recur_expr_parse_compare(self, first: AST) -> ComparatorAST:
+        cmp = self._expect([TokenKind.LT, TokenKind.LEQ, TokenKind.GT, TokenKind.GEQ, TokenKind.NEQ, TokenKind.EQ])
+        second = self._root_parse_expr()
+        return ComparatorAST(first, second, Comparator.from_token(cmp))
