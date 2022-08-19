@@ -75,6 +75,13 @@ def launch_great_script():
     env = dict()
     parser.parse().evaluate(env)
 
+def launch_logo_script():
+    with open('./logo.he', 'r') as f:
+        content = f.read()
+    lexer = Lexer(content)
+    parser = Parser(lexer.lex())
+    env = dict()
+    parser.parse().evaluate(env)
 
 def launch_logo_script():
     with open('./logo.he', 'r') as f:
