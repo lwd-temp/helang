@@ -3,7 +3,7 @@ import enum
 from typing import Dict, Optional, List, Union
 from .u8 import U8
 from .check_cyberspaces import check_cyberspaces
-from .speed_tester import run_speed_test
+from .speed_tester import run_speed_test_music, run_speed_test_app
 from .exceptions import CyberNameException
 from .tokens import Token, TokenKind
 
@@ -133,9 +133,15 @@ class PrintAST(AST):
         return val
 
 
-class Test5GAST(AST):
+class Test5GMusicAST(AST):
     def evaluate(self, env: Dict[str, U8]) -> U8:
-        run_speed_test()
+        run_speed_test_music()
+        return U8()
+
+
+class Test5GAppAST(AST):
+    def evaluate(self, env: Dict[str, U8]) -> U8:
+        run_speed_test_app()
         return U8()
 
 

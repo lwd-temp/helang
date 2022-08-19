@@ -323,7 +323,13 @@ cyberspaces;
 很简单，只需要另起一行输入：
 
 ```c
-test5g;
+test5g music;
+```
+
+或者使用另一个模式:
+
+```c
+test5g app;
 ```
 
 即可从本行开始5G测速。
