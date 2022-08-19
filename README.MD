@@ -12,7 +12,6 @@
 <a href="https://github.com/kifuan/helang/actions/workflows/tests.yml"><img src="https://github.com/kifuan/helang/actions/workflows/tests.yml/badge.svg" alt="Test"></a>
 </p>
 
-[![Star History Chart](https://api.star-history.com/svg?repos=kifuan/helang&type=Date)](https://star-history.com/#kifuan/helang&Date)
 
 # 概述
 
@@ -21,6 +20,8 @@
 Next-Generation **Cyber** Programming Language from Li Tang.
 
 引个流先：https://www.bilibili.com/video/BV1XW4y1h79A/
+
+[![Star History Chart](https://api.star-history.com/svg?repos=kifuan/helang&type=Date)](https://star-history.com/#kifuan/helang&Date)
 
 # 二创
 
