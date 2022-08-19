@@ -44,7 +44,8 @@ class Parser:
         self._tokens = tokens
         self._pos = 0
 
-    def _expect(self, expected_kind: Union[TokenKind, List[TokenKind]], validator: Optional[Callable[[Token], bool]] = None) -> Token:
+    def _expect(self, expected_kind: Union[TokenKind, List[TokenKind]],
+                validator: Optional[Callable[[Token], bool]] = None) -> Token:
         if self._pos >= len(self._tokens):
             raise BadStatementException('no more tokens')
 
