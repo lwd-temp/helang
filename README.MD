@@ -15,7 +15,7 @@
 
 # 概述
 
-[Русский](README-RU.MD) [中文](README.MD)
+[伏拉夫语](README-RU.MD) [中文](README.MD)
 
 Next-Generation **Cyber** Programming Language from Li Tang.
 
