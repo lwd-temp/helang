@@ -9,13 +9,13 @@ _SOURCE_FONT = QFont('Consolas')
 _SOURCE_FONT.setPointSize(16)
 
 
-class _SourceArea(QTextEdit):
+class SourceArea(QTextEdit):
     def __init__(self, parent: QWidget):
         super().__init__(parent)
         self.setFont(_SOURCE_FONT)
 
 
-class _OutputArea(QTextEdit):
+class OutputArea(QTextEdit):
     def __init__(self, parent: QWidget):
         super().__init__(parent)
         self.setFont(_OUTPUT_FONT)
@@ -34,8 +34,8 @@ class Editor(QWidget):
 
     def _init_areas(self):
         self._layout = QVBoxLayout()
-        self._source_area = _SourceArea(self)
-        self._output_area = _OutputArea(self)
+        self._source_area = SourceArea(self)
+        self._output_area = OutputArea(self)
         self._layout.addWidget(self._source_area)
         self._layout.addWidget(QLabel('Output'))
         self._layout.addWidget(self._output_area)
