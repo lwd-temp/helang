@@ -1,5 +1,5 @@
 from enum import Enum
-from typing import List, Optional, Callable
+from typing import List, Optional, Callable, Union
 from .tokens import Token, TokenKind
 from .exceptions import BadStatementException
 from .he_ast import (
@@ -43,13 +43,16 @@ class Parser:
         self._tokens = tokens
         self._pos = 0
 
-    def _expect(self, expected_kind: TokenKind, validator: Optional[Callable[[Token], bool]] = None):
+    def _expect(self, expected_kind: Union[TokenKind, List[TokenKind]], validator: Optional[Callable[[Token], bool]] = None) -> Token:
         if self._pos >= len(self._tokens):
             raise BadStatementException('no more tokens')
 
         token = self._tokens[self._pos]
 
-        if token.kind != expected_kind:
+        if not isinstance(expected_kind, list):
+            expected_kind = [expected_kind]
+
+        if token.kind not in expected_kind:
             raise BadStatementException(f'expected {expected_kind} at pos {self._pos}, got {token.kind}')
 
         if validator is not None and not validator(token):
@@ -261,6 +264,7 @@ class Parser:
             | LS expr RS expr'
             | SUB expr expr'
             | ADD expr expr'
+            | MUL expr expr'
             | empty
             ;
         :param prev:
@@ -303,3 +307,9 @@ class Parser:
         self._expect(TokenKind.ADD)
         second = self._root_parse_expr()
         return ArithmeticAST(first, second, ArithmeticOperator.ADD)
+
+    @_ruled_methods.bind(Rule.EXPR_LEFT_RECURSIVE)
+    def _left_recur_expr_parse_mul(self, first: AST) -> ArithmeticAST:
+        self._expect(TokenKind.MUL)
+        second = self._root_parse_expr()
+        return ArithmeticAST(first, second, ArithmeticOperator.MUL)
