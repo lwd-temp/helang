@@ -2,7 +2,7 @@ import tqdm
 import time
 import random
 import sys
-from .exceptions import BadStatementException
+
 
 MUSICS = [
     'Kill You', 'Lighters', 'ZOOD', 'Love the Way You Lie',
@@ -20,16 +20,18 @@ MUSIC_SIZE_MB_RANGE = (10, 30)
 
 
 APPS = [
-    'Apple Store', 'Speedtest'
-    ]
+    'Apple Store', 'Speed-test', 'Genshin Impact',
+    'Arknights', 'Bilibili', 'Hetellij IDEA',
+    'Henity 3D', 'Hereal Engine'
+]
 
 APPS_VER = [
     "V5.17", "V4.4.3"
-    ]
+]
 
 APPS_SIZE = [
     84,	107
-    ]
+]
 
 
 SUMMARY_STRING = '''
