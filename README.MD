@@ -18,13 +18,10 @@
 <a href="https://github.com/kifuan/helang/actions/workflows/tests.yml"><img src="https://github.com/kifuan/helang/actions/workflows/tests.yml/badge.svg" alt="Test"></a>
 </p>
 
-<div align="center">
-<a href="README.MD">中文</a>
-<a href="README-RU.MD">Русский</a>
-</div>
-
 
 # 概述
+
+[Русский](README-RU.MD) [中文](README.MD)
 
 Next-Generation **Cyber** Programming Language from Li Tang.
 
