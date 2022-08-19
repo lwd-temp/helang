@@ -297,16 +297,10 @@ class Parser:
         return U8GetAST(list_expr, subscript_expr)
 
     @_ruled_methods.bind(Rule.EXPR_LEFT_RECURSIVE)
-    def _left_recur_expr_parse_sub(self, first: AST) -> ArithmeticAST:
-        self._expect(TokenKind.SUB)
+    def _left_recur_expr_parse_add_sub(self, first: AST) -> ArithmeticAST:
+        operator = self._expect([TokenKind.ADD, TokenKind.SUB])
         second = self._root_parse_expr()
-        return ArithmeticAST(first, second, ArithmeticOperator.SUB)
-
-    @_ruled_methods.bind(Rule.EXPR_LEFT_RECURSIVE)
-    def _left_recur_expr_parse_add(self, first: AST) -> ArithmeticAST:
-        self._expect(TokenKind.ADD)
-        second = self._root_parse_expr()
-        return ArithmeticAST(first, second, ArithmeticOperator.ADD)
+        return ArithmeticAST(first, second, ArithmeticOperator.from_token(operator))
 
     @_ruled_methods.bind(Rule.EXPR_LEFT_RECURSIVE)
     def _left_recur_expr_parse_mul(self, first: AST) -> ArithmeticAST:
