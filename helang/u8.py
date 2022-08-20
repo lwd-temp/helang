@@ -7,6 +7,15 @@ from .exceptions import (
 
 
 class U8:
+    _cached_empty = None
+
+    def __new__(cls, value: Optional[Union[List[int], Generator[int, None, None], int]] = None):
+        if value is not None:
+            return super().__new__(cls)
+        if cls._cached_empty is None:
+            cls._cached_empty = super().__new__(cls)
+        return cls._cached_empty
+
     """
     The Saint He's specific type.
     """

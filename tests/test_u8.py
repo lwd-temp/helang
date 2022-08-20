@@ -65,3 +65,7 @@ def test_u8_compare():
     assert U8([4, 5, 6]) >= U8([4, 2])
     assert U8([1, 2]) == U8([1, 2, 0])
     assert U8([2, 1]) != U8([1, 2])
+
+
+def test_u8_empty_cache():
+    assert object.__eq__(U8(), U8())
