@@ -12,6 +12,19 @@
 <a href="https://github.com/kifuan/helang/actions/workflows/tests.yml"><img src="https://github.com/kifuan/helang/actions/workflows/tests.yml/badge.svg" alt="Test"></a>
 </p>
 
+# 停止维护声明
+
+天天写玩具没意思，继续做圆锥曲线了。
+
+无限期停止维护。
+
+你们可以自己 `fork` 去玩。
+
+我个人不添加新功能。
+
+这个仓库挺适合作为入门菜鸡版编译原理的。
+
+以上。
 
 # 概述
 
