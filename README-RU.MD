@@ -47,7 +47,7 @@
 1. клон исходника:
 
    ```bash
-   > git clone git@github.com:kifuan/helang.git
+   > git clone https://github.com/kifuan/helang.git
    ```
 
 2. Загрузите необходимые сторонние библиотеки:
