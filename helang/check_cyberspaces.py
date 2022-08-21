@@ -5,7 +5,6 @@ import json
 from .exceptions import CyberNetworkException, CyberNotSupportedException
 
 
-# The strings are got from https://pv.sohu.com/cityjson?ie=utf-8.
 _AMERICAN_REGIONS = {
     'UNITED STATES',
     'JAPAN',
