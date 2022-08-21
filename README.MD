@@ -119,7 +119,8 @@ Next-Generation **Cyber** Programming Language from Li Tang.
    > python helang.py editor
    ```
    
-   持续开发中，会不断完善其功能。
+   _持续开发中，会不断完善其功能。_
+   目前只支持在窗口内直接运行指定代码，并且当 `print` 过于频繁时会崩掉。
 
 ## 安装到本地
 
@@ -219,7 +220,7 @@ print forceCon;
 好在，经过协商，他同意了这个请求，使得我们能在这门语言中打印出 `Hello, Litang.`
 
 ```c
-sprint 72 | 101 | 108 | 108 | 111 | 44 | 32 | 76 | 105 | 116 | 97 | 110 | 103 | 46; | 46;
+sprint 72 | 101 | 108 | 108 | 111 | 44 | 32 | 76 | 105 | 116 | 97 | 110 | 103 | 46;
 // Hello, Litang.
 ```
 
