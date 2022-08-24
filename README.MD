@@ -36,7 +36,7 @@ Next-Generation **Cyber** Programming Language from Li Tang.
 
 来自理塘的下一代 **赛博** 编程语言。
 
-通过纯理塘自研的 HeLang，创建行业新生态，赋能无人涉及的新赛道，打通语言底层逻辑，注入新型语法基因。
+通过纯理塘自研的 `HeLang`，创建行业**新生态**，赋能无人涉及的**新赛道**，打通语言**底层逻辑**，注入**新型语法基因**。
 
 引个流先：https://www.bilibili.com/video/BV1XW4y1h79A/
 
