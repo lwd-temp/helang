@@ -1,4 +1,4 @@
-from typing import Optional, List, Union, Tuple, Generator
+from typing import List, Union, Tuple, Generator
 from inspect import isgenerator
 from .exceptions import (
     CyberArithmeticException, CyberU8ComparingException,
@@ -9,7 +9,7 @@ from .exceptions import (
 class U8:
     _cached_empty = None
 
-    def __new__(cls, value: Optional[Union[List[int], Generator[int, None, None], int]] = None):
+    def __new__(cls, value: Union[List[int], Generator[int, None, None], int, None] = None):
         if value is not None:
             return super().__new__(cls)
         if cls._cached_empty is None:
@@ -19,7 +19,7 @@ class U8:
     """
     The Saint He's specific type.
     """
-    def __init__(self, value: Optional[Union[List[int], Generator[int, None, None], int]] = None):
+    def __init__(self, value: Union[List[int], Generator[int, None, None], int, None] = None):
         if value is None:
             self.value = []
         elif isinstance(value, int):
