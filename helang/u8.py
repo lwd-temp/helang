@@ -7,6 +7,10 @@ from .exceptions import (
 
 
 class U8:
+    """
+    The Saint He's specific type.
+    """
+
     _cached_empty = None
 
     def __new__(cls, value: Union[List[int], Generator[int, None, None], int, None] = None):
@@ -16,9 +20,6 @@ class U8:
             cls._cached_empty = super().__new__(cls)
         return cls._cached_empty
 
-    """
-    The Saint He's specific type.
-    """
     def __init__(self, value: Union[List[int], Generator[int, None, None], int, None] = None):
         if value is None:
             self.value = []
