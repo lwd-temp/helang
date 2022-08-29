@@ -60,15 +60,15 @@ class TokenKind(enum.Enum):
     LEQ = 28
     # Not equals to, !=
     NEQ = 29
-    #TEST_5G argument
+    # Argument for TEST_5G
     T5G_MUSIC = 30
-    #TEST_5G argument
+    # Argument for TEST_5G
     T5G_APP = 31
-    #LOGO argument
+    # Argument for LOGO
     LOGO_TINY = 32
-    #LOGO argument
+    # Argument for LOGO
     LOGO_MEDIUM = 33
-    #LOGO argument
+    # Argument for LOGO
     LOGO_LARGE = 34
 
 
