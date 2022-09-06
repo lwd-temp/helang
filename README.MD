@@ -122,7 +122,8 @@ Next-Generation **Cyber** Programming Language from Litang.
    > python helang.py editor
    ```
    
-   _持续开发中，会不断完善其功能。_
+   ~持续开发中，会不断完善其功能。~
+
    目前只支持在窗口内直接运行指定代码，并且当 `print` 过于频繁时会崩掉。
 
 ## 安装到本地
