@@ -28,38 +28,11 @@ Next-Generation **Cyber** Programming Language from Litang.
 
 # 愤怒喵
 
-近日听闻有学校用本语言出题目，然而出题者竟然**不说自己喜欢抽电子烟**！这无疑是对何语言的亵渎！
-
-为了应对此等行为，我特意帮助大家顺利答出本题，原题如下：
+近日听闻有学校用本语言出题目，然而出题者竟然**不说自己喜欢抽电子烟**！这无疑是对何语言的亵渎！ 
 
 ![Question](screenshots/question.jpg)
 
-各位可以这样做，首先克隆本仓库并使用 `pip install .` 来安装 `HeLang SDK`，随后在题目里面这样写：
-
-```python
-from helang.u8 import U8
-from helang.quick_runner import quick_run_string
-
-# 你需要将一千行左右的赋值语句前后加上三引号, 里面的句末分号加不加无所谓
-CODE = '''
-'''
-
-# 这是题目的入口函数
-def get_flag(a):
-    pass
-
-class MyU8(U8):
-    def __setitem__(self, sub, val):
-        return super().__setitem__(sub+U8(1), val)
-
-
-if __name__ == '__main__':
-    a = MyU8([0] * 10000)
-    quick_run_string(CODE, {'a': a})
-    get_flag(a.value)
-```
-
-公布答案来惩罚你们亵渎何语言的行为！
+由于比赛尚未结束，这里就只是提出强烈抗议了！不过用 `HeLang` 是可以解的，等结束后再贴出。
 
 # 二创
 
