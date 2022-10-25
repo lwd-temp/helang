@@ -34,7 +34,7 @@ Next-Generation **Cyber** Programming Language from Litang.
 
 ![Question](screenshots/question.jpg)
 
-各位可以这样做，首先使用 `pip install .` 来安装 `HeLang SDK`，随后在题目里面这样做：
+各位可以这样做，首先克隆本仓库并使用 `pip install .` 来安装 `HeLang SDK`，随后在题目里面这样写：
 
 ```python
 from helang.u8 import U8
