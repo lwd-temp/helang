@@ -26,30 +26,71 @@ Next-Generation **Cyber** Programming Language from Litang.
 
 [![Star History Chart](https://api.star-history.com/svg?repos=kifuan/helang&type=Date)](https://star-history.com/#kifuan/helang&Date)
 
-# 愤怒喵
-
-近日听闻有学校用本语言出题目，然而出题者竟然**不说自己喜欢抽电子烟**！这无疑是对何语言的亵渎！ 
-
-![Question](screenshots/question.jpg)
-
-由于比赛尚未结束，这里就只是提出强烈抗议了！不过用 `HeLang` 是可以解的，等结束后再贴出。
-
 # 二创
 
 非常好作品！爱来自 **Cyber Spaces**！
 
 + 何语言 `Kotlin` 脚本版 [HeLangKotlinScriptImpl](https://github.com/shaokeyibb/HeLangKotlinScriptImpl) --- [实现原理](https://my.minecraft.kim/tech/2022/08/18/post-740/)
+
 + 何语言 `C#` 版 [HeLangSharp](https://github.com/Cyl18/HeLangSharp)
+
 + 为什么不用 Rust 重写呢？ [helang-rs](https://github.com/imtsuki/helang-rs)
+
 + 登陆 [`ArchLinux`](https://github.com/BenderBlog/Practise-Programs/tree/main/Helang-PKGBUILD)
+
 + `HeScript`，在 `JavaScript` / `TypeScript` 享受 `helang` 吧！[hescript](https://github.com/Rotten-LKZ/hescript)
+
 + 要不用 `go` 语言搬运一下？ [helang-go](https://github.com/LanceLRQ/helang-go)
+
 + 另一种 Rust 实现，支持用 $ 进行招聘！ [HeRang](https://github.com/xjrjyy/herang)
+
 + 我们要进军底层开发！[HeAssembly](https://github.com/FurryR/HeAssembly)
+
 + `Saint He` 曾说：要有函数式！于是 Haskell 便诞生。[HelangHaskellImpl](https://github.com/CziSKY/HelangHaskellImpl)
+
 + 在Swift中使用Helang [HelangSwift](https://github.com/suransea/HelangSwift)
+
 + `OCaml` 也想要变得赛博⚆_⚆ [HelangML](https://github.com/luooooob/HelangML)
+
 + 通过 C++ 模板元编程，我们在赛博元宇宙发现了**何而上语言（Meta-Helang）**！[HeLangCppMetaImpl](https://github.com/Timothy-Liuxf/HeLangCppMetaImpl)
+
++ [HeiLang](https://github.com/USTC-Hackergame/hackergame2022-writeups/blob/master/official/HeiLang/README.md)，但出题者违法了我粘跌的 **BUPT LICENSE** :angry::punch:
+
+  ```
+  Anyone can obtain a copy of this Software, “AS IS”, free of charge to use it as one’s wishes, including selling, modifying, and redistributing the Software, under the following conditions:
+  Being cool.
+  Advertising electronic smoke is better than the traditional one. 
+  Modifying the Software to fulfill the expectations of future. 
+  Using 5G when necessary.
+  ```
+
+  由于题解贴出了本仓库地址，这里就不予追究了，题目如下：
+
+  ![Question](screenshots/question.jpg)·
+
+  其实，用本仓库解这个题比替换文本慢不了多少。
+
+  ```python
+  from helang.u8 import U8
+  from helang.quick_runner import quick_run_string
+  
+  # 那一坨
+  CODE = '''
+  '''
+  
+  class MyU8(U8):
+      def __setitem__(self, sub, val):
+          return super().__setitem__(sub+U8(1), val)
+  
+  
+  if __name__ == '__main__':
+      a = MyU8([0] * 10000)
+      quick_run_string(CODE, {'a': a})
+      get_flag(a.value)
+  ```
+
+  不觉得这样才酷吗，用文本替换实在是太无趣了，低级并带着原始。
+
 + L! T! C! (etc.)
 
 # 介绍
