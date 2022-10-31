@@ -95,7 +95,7 @@ PS 2: **BUPT** also refers to **Beijing University of Posts and Telecommunicatio
    > pip install -r requirements-gui.txt
    ```
 
-3. Modify **The Great Script** `great.he`, then run `helang.py` in a `great` way：
+3. Modify **The Great Script** `helang/great.he`, then run `helang.py` in a `great` way：
 
    ```bash
    > python helang.py great
