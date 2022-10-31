@@ -127,7 +127,7 @@ Next-Generation **Cyber** Programming Language from Litang.
    > pip install -r requirements-gui.txt
    ```
 
-3. 你可以修改**伟大的脚本** `great.he`，然后以 `great` 的方式启动 `helang.py`：
+3. 你可以修改**伟大的脚本** `helang/great.he`，然后以 `great` 的方式启动 `helang.py`：
 
    ```bash
    > python helang.py great
@@ -274,7 +274,7 @@ sprint 72 | 101 | 108 | 108 | 111 | 44 | 32 | 76 | 105 | 116 | 97 | 110 | 103 | 
 > python helang.py logo
 ```
 
-通过查看源文件 `lib/logo.he`，你会发现代码主要由**数字**构成，在赛博世界里，仅仅通过简单的数字就能显示复杂的图案，**不觉得这很酷吗**！
+通过查看源文件 `helang/logo.he`，你会发现代码主要由**数字**构成，在赛博世界里，仅仅通过简单的数字就能显示复杂的图案，**不觉得这很酷吗**！
 
 除此之外，你还可以在 HeLang 代码中打印 `HeLang Logo`，只需输入下方代码即可：
 

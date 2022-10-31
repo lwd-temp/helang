@@ -1,9 +1,10 @@
 import sys
+import pkgutil
 import traceback
 import platform
 
 from typing import Dict
-from .quick_runner import quick_run_file
+from .quick_runner import quick_run_string
 from .lexer import Lexer
 from .parser import Parser
 from .exceptions import HeLangException
@@ -69,11 +70,11 @@ def launch_editor():
 
 
 def launch_great_script():
-    quick_run_file('./lib/great.he')
+    quick_run_string(pkgutil.get_data(__name__, 'great.he').decode('utf-8'))
 
 
 def launch_logo_script():
-    quick_run_file('./lib/logo.he')
+    quick_run_string(pkgutil.get_data(__name__, 'logo.he').decode('utf-8'))
 
 
 LAUNCHERS = {

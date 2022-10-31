@@ -1,4 +1,6 @@
+import io
 import enum
+import pkgutil
 
 from PIL import Image
 from time import time
@@ -6,7 +8,9 @@ from time import time
 
 def _print_logo(img_width: int):
     img_height = int(img_width * 0.55)
-    img = Image.open('./logo.png').resize((img_width,img_height), Image.ANTIALIAS)
+    img = Image.open(io.BytesIO(
+        pkgutil.get_data(__name__, 'logo.png')
+    )).resize((img_width, img_height), Image.ANTIALIAS)
 
     ascii_char = list('▓M@$%&Ww(({[+1i<>/!l-  ')
     ascii_char_unit = 257 / len(ascii_char)

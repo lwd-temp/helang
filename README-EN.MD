@@ -242,7 +242,7 @@ Actually, you can print HeLang's logo by:
 > python helang.py logo
 ```
 
-By looking at the source `lib/logo.he`, you will find the code is mostly **numbers**. In Cyber Spaces, complex images can be displayed with simple numbers. **Isn't that cool?**
+By looking at the source `helang/logo.he`, you will find the code is mostly **numbers**. In Cyber Spaces, complex images can be displayed with simple numbers. **Isn't that cool?**
 
 Besides, you can also print `HeLang Logo` in HeLang code:
 
