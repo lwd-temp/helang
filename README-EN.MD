@@ -16,7 +16,7 @@
 
 # Breaking News
 
-I sincerely appreciate the high praise given by H in the first commit of this repository after 367d 21h 23m. For the development of this repo, we need to reach a new level, achieve new horizons, and make new breakthroughs through new initiatives and developments. To do so, we must value new methods, understand new forms, and grasp new requirements accurately. Only by doing this can we utilize new skills, showcase a new appearance, and reach new heights within new expectations and relationships. New knowledge leads to new creations, and new practices yield new results.
+I sincerely appreciate the high praise given by H after 367d 21h 23m of the first commit of this repo. For the development of this repo, we need to reach a new level, achieve new horizons, and make new breakthroughs through new initiatives and developments. To do so, we must value new methods, understand new forms, and grasp new requirements accurately. Only by doing this can we utilize new skills, showcase a new appearance, and reach new heights within new expectations and relationships. New knowledge leads to new creations, and new practices yield new results.
 
 ![NEWS](./screenshots/breaking.jpg)
 
