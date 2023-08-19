@@ -12,23 +12,13 @@
 <a href="https://github.com/kifuan/helang/actions/workflows/tests.yml"><img src="https://github.com/kifuan/helang/actions/workflows/tests.yml/badge.svg" alt="Test"></a>
 </p>
 
-# NO LONGER MAINTAINED
-
-The conic section is absotulely much funner than the toy language.
-
-So I decided to abandon this toy.
-
-Download and play.
-
-I won't add any new features further.
-
-This repository is pretty suitable for compiler newbies, so notice your **code quality** when submitting PRs.
-
-That's all.
-
-**Note: Community PRs and issues are still acceptable.**
-
 **Translation note: This translation will not be updated further by [@ZeroAurora](https://github.com/ZeroAurora) and [@SherkeyXD](https://github.com/SherkeyXD). Very bad translation! Hate from BUPT.**
+
+# Breaking News
+
+I sincerely appreciate the high praise given by H in the first commit of this repository after 367d 21h 23m. For the development of this repo, we need to reach a new level, achieve new horizons, and make new breakthroughs through new initiatives and developments. To do so, we must value new methods, understand new forms, and grasp new requirements accurately. Only by doing this can we utilize new skills, showcase a new appearance, and reach new heights within new expectations and relationships. New knowledge leads to new creations, and new practices yield new results.
+
+![NEWS](./screenshots/breaking.jpg)
 
 # Overview
 
