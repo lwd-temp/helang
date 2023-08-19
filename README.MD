@@ -12,6 +12,12 @@
 <a href="https://github.com/kifuan/helang/actions/workflows/tests.yml"><img src="https://github.com/kifuan/helang/actions/workflows/tests.yml/badge.svg" alt="Test"></a>
 </p>
 
+# Breaking News
+
+非常感谢 H 方在本仓库的第一个 commit 经过 367 天 21 时 23 分后做出的的高度评价。对于本仓库的发展，我们需要拿出新水平、达到新境界，通过新举措、新发展，形成新突破，为此，我们必须重视新方法、看清新形式、理准新要求，只有这样，我们才能在新期待、新关系中，用好新本领、展现新风貌、走出新高度，新知识造就新事物、新实践获得新成果。
+
+![NEWS](./screenshots/breaking.jpg)
+
 # 概述
 
 [English](README-EN.MD) [中文](README.MD) [Русский](README-RU.MD) 
